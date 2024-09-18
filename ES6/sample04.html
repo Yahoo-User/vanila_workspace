@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
+
+    <title>sample04</title>
+
+    <script>
+        function order(coffee, callback) {
+            console.log(`${coffee} ordered.`);
+
+            // setTimeout(() => callback(coffee), 5000);   // setTimeout
+            setTimeout((product) => callback(product), 3000, [coffee]); // setTimeout
+        } // order
+
+        function display(result) {
+            console.log(`${result} ready...`);
+        } // display
+
+        order('Americano', display);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

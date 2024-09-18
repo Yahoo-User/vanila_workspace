@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
+
+    <title>sample13</title>
+
+    <script>
+
+        async function whatsYourFavorite() {
+            console.debug(`2. whatsYourFavorite() invoked.`);
+
+            return "Javascript";
+        } // async whatsYourFavorite
+
+        // ------------------------- //
+
+        async function displaySubject(subject) {
+            console.debug(`3. displaySubject(${subject}) invoked.`);
+
+            return `Hello, ${subject}`;
+        } // async displaySubject
+
+        // ------------------------- //
+
+        async function init() {
+            console.debug(`1. init() invoked.`);
+
+            let yourFavorite = await whatsYourFavorite();
+            let subject = await displaySubject(yourFavorite);
+
+            console.log(`\t+ yourFavorite: ${yourFavorite}, subject: ${subject}`);
+
+            console.log(`\t+ subject: ${subject}`);
+        } // async init
+
+        // ------------------------- //
+
+        init();
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

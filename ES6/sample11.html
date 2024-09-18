@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
+
+    <title>sample11</title>
+
+    <script src="js/sleep.js"></script>
+
+    <script>
+        console.group('FETCH');
+
+            const set = new Set();
+
+            const promise = fetch('/json/users.json');
+            console.log("1. promise:", promise);
+
+            const jsonPromise = promise.then(val => val.json()).catch(console.error);
+            console.log('2. jsonPromise:', jsonPromise);
+
+            const finalPromise = 
+                jsonPromise.
+                    then( users => users.forEach( (user, index) => set.add(user) ) ).   // .then
+                    catch(console.error).   // .catch
+                    finally( () => {
+                        console.log('4. set:', set);
+
+                        let div = document.querySelector('#wrapper');
+                        let ol = document.createElement('ol');
+
+                        set.forEach(user => {
+                            let li = document.createElement('li');
+                            li.innerText = `${user.name}, ${user.email}, ${user.phone}, ${user.username}, ${user.website}, ${user.company.name}, ${user.company.bs}, ${user.company.catchPhrase}, ${user.address.city}, ${user.address.suite}, ${user.address.street}, ${user.address.zipcode}, ${user.address.geo.lat}, ${user.address.geo.lng}`;
+
+                            ol.append(li);
+                        }); // .forEach
+
+                        div.append(ol);
+                    }); // .finally
+
+            console.log('3. finalPromise:', finalPromise);
+
+        console.groupEnd();
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper"></div>
+
+</body>
+
+</html>

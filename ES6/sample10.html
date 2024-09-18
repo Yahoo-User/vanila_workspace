@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
+
+    <title>sample10</title>
+
+    <script>
+
+        const pizza = () => {
+            return new Promise((resolve, reject) => {
+                resolve('1. 피자를 주문합니다.');
+            });
+        };  // pizza
+
+        const step1 = message => {
+            console.log(message);
+            return new Promise( (resolve, reject) => setTimeout(() => resolve('2. 피자도우준비'), 3000) );
+        };  // step1
+
+        const step2 = message => {
+            console.log(message);
+            return new Promise( (resolve, reject) => setTimeout(() => resolve('3. 토핑완료'), 1000) );
+        };  // step2
+
+        const step3 = message => {
+            console.log(message);
+            return new Promise( (resolve, reject) => setTimeout(() => resolve('4. 굽기완료'), 2000) );
+        };  // step3
+
+        // ============================= //
+        // then() 메소드 내에서 새로이 생성한 Promise 객체를 반환하면, then() 메소드의 return 값이 되는가? => * YES *
+        // ============================= //
+
+        // const newPromise = 
+        //     pizza().
+        //         //    ------------------------------------------------------------------------------
+        //         //    한번 Promise 객체의 반환값(resolve or reject)를 then() 메소드로 사용하면,
+        //         //    then() 메소드가 리턴한 Promise 객체는 더이상 resolve and reject 값이 없는 빈 Promise 객체임 (***)
+        //         //    ------------------------------------------------------------------------------
+        //            then( val => console.log(val) ).
+        //            then( val => new Promise((resolve, reject) => resolve('hello')) );
+
+        // console.log('newPromise:', newPromise);
+        // newPromise.then( val => console.log(val) );
+
+        // ============================= //
+
+        // pizza().
+        //     then(val => step1(val)).
+        //     then(val => step2(val)).
+        //     then(val => step3(val)).
+        //     then(val => console.log(val)).
+        //     then(() => console.log('5. 피자가 준비되었습니다.')).
+        //     then(() => console.log('Done.'));
+
+        // ============================= //
+
+        // pizza().
+        //     then(step1).
+        //     then(step2).
+        //     then(step3).
+        //     then(console.log).  // method reference
+        //     then(() => console.log('5. 피자가 준비되었습니다.')).
+        //     then(() => console.log('Done.'));
+
+        // ============================= //
+
+        const promise1 = pizza();
+        console.log('promise1:', promise1);
+
+        // const promise2 = promise1.then(val => step1(val));
+        const promise2 = promise1.then(step1);
+        console.log('promise2:', promise2);
+        
+        // const promise3 = promise2.then(val => step2(val));
+        const promise3 = promise2.then(step2);
+        console.log('promise3:', promise3);
+        
+        // const promise4 = promise3.then(val => step3(val));
+        const promise4 = promise3.then(step3);
+        console.log('promise4:', promise4);
+        
+        // const promise5 = promise4.then(val => console.log(val));
+        const promise5 = promise4.then(console.log);
+        console.log('promise5:', promise5);
+        
+        const promise6 = promise5.then(() => console.log('5. 피자가 준비되었습니다.'));
+        console.log('promise6:', promise6);
+
+        promise6.then(() => console.log('Done.'));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>sample02</title>
+
+    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="icon/favicon.ico" type="image/x-icon">
+
+    <script>
+
+        const xhr = new XMLHttpRequest();
+
+        xhr.open("get", "/json/users.json", true);
+        xhr.onreadystatechange = function () {
+            console.log(`* readyState: ${xhr.readyState}`);
+
+            if(xhr.readyState == 4 && xhr.status == 200) {
+                let users = JSON.parse(xhr.responseText);
+                console.log(users);
+
+                let divUsers = document.querySelector('#users');
+                console.log(typeof divUsers);
+
+                // for(let user of users) {
+                //     console.log(`name: ${user.name}, email: ${user.email}, phone: ${user.phone}, website: ${user.website}`);
+
+                // } // for-of
+
+                users.forEach(user => {
+                    console.log(`name: ${user.name}, email: ${user.email}, phone: ${user.phone}, website: ${user.website}`);
+
+                }); // forEach
+            } // if
+        } // f onreadystatechange
+
+        xhr.send();
+    </script>
+</head>
+
+<body>
+    <h1>Users</h1>
+
+    <div id="users">
+
+    </div>
+
+</body>
+
+</html>

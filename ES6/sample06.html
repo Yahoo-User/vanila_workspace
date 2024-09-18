@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
+
+    <title>sample06</title>
+
+    <script>
+
+        let likePizza = false;
+
+        const pizza = new Promise((resolve, reject) => {
+            if(likePizza) {
+                resolve("Do order pizza!");
+            } else {
+                reject("Don't order a pizza!");
+            } // if-else
+        }); // pizza
+
+        console.log(pizza);
+
+        pizza.
+            then(value => console.log('Value:', value)).
+            catch(reason => console.log("Reason:", reason)).
+            finally(() => console.log('Done.'));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

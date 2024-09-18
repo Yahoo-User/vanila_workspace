@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
+
+    <title>sample14</title>
+
+    <script>
+
+        // --- 1. Without async, wait ------------------------ //
+
+        const response = fetch('http://jsonplaceholder.typicode.com/users');
+        console.log('1. response:', response);
+
+        const json = response.then(val => val.json());
+        console.log('2. json:', json);
+
+        // const result = json.then(console.log);
+        const result = json.then(users => {
+            console.log(users);
+
+            users.forEach( (user, index) => console.log(`[${user.id}]. ${user.name}, ${user.username}, ${user.name}, ${user.phone}`) );
+        });
+        console.log('3. result:', result);
+
+
+        // --- 2. With async, wait ------------------------ //
+
+        async function init() {
+            console.group('init');
+
+            console.debug('async init() invoked.');
+
+            const response = await fetch('http://jsonplaceholder.typicode.com/users');
+            const users = await response.json();
+
+            console.log('1. response:', response);
+            console.log('2. users:', users);
+
+            users.forEach( (user, index) => console.log(`[${user.id}]. ${user.name}, ${user.username}, ${user.name}, ${user.phone}`) );
+
+            console.groupEnd();
+        } // async init
+
+        init();
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
