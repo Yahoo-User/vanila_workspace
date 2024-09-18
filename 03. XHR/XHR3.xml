@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XHR2</title>
+
+    <script>
+
+        window.onload = function () {
+            // XHR 를 이용한 비동기식 요청처리
+
+            //----------------------------------------------//
+            // 1. var XMLHttpRequest: new () => XMLHttpRequest
+            //----------------------------------------------//
+            var xhr = new XMLHttpRequest();
+
+
+            //----------------------------------------------//
+            // 2. (property) XMLHttpRequest.onreadystatechange: 
+            //              (this: XMLHttpRequest, ev: Event) => any
+            //----------------------------------------------//
+            xhr.onreadystatechange = function () {
+                console.log('onreadystatechange:', xhr.readyState);
+
+                if(xhr.readyState == 4) {   // 응답완료상태에서...
+
+                    if(xhr.status == 200) { // HTTP status code
+                        document.body.innerHTML = xhr.responseText;
+
+                        // JSON.parse: JSON -> JS Object 로 변환
+                        var arr = JSON.parse(xhr.responseText);
+                        console.log(arr);
+
+                        if(arr.length > 0) {
+                            var person = arr[0];
+
+                            console.group('PERSON');
+                                console.log('1. id:', person.id);
+                                console.log('2. first_name:', person.first_name);
+                                console.log('3. last_name:', person.last_name);
+                                console.log('4. email:', person.email);
+                                console.log('5. gender:', person.gender);
+                                console.log('6. ip_address:', person.ip_address);
+                            console.groupEnd();
+                        } // if(array.length)
+
+                    } // if(status==200)
+
+                } // if(readyState==4)
+                
+            };  // onreadystatechange
+
+
+            //----------------------------------------------//
+            // (method) XMLHttpRequest.open(
+            //   method: string, url: string, async: boolean, username?: string, password?: string
+            // ): void
+            //----------------------------------------------//
+            xhr.open('GET', 'doc/persons.json', true);
+            // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+
+            //----------------------------------------------//
+            // (method) XMLHttpRequest.send(body?: Document | BodyInit): void
+            //----------------------------------------------//
+            xhr.send();
+
+        };  // onload
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
