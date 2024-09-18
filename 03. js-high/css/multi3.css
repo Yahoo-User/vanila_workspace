@@ -1,0 +1,16 @@
+#result {
+    width: 500px;
+    height: 100px;
+    margin: 50px auto;
+    padding: 10px;
+    border: 7px outset gold;
+
+    color: white;
+    background-color: #666666;
+    box-shadow: 10px 10px 30px #666666;
+
+    font-size: 1.4em;
+    line-height: 100px;
+    font-weight: bold;
+    text-align: center;
+}

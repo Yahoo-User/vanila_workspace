@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample14</title>
+
+    <link rel="stylesheet" href="../css/factorial.css">
+</head>
+
+<body>
+
+    <script>
+
+        var n = prompt('숫자를 입력하세요.');
+        var nFact = 1;
+        var counter = 2;
+
+        while(counter <= n) {
+            nFact *= counter;
+            console.log(`counter = ${counter}, nFact = ${nFact}.`);
+
+            counter++;
+        } // while
+
+        document.write(`${n} != ${nFact}`);
+
+    </script>
+
+</body>
+
+</html>

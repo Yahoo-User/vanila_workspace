@@ -1,0 +1,54 @@
+#container {
+    width: 600px;
+    margin: 0 auto;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    clear: both;
+}
+
+.field {
+    float: left;
+
+    width: 100px;
+    margin-right: 15px;
+
+    font-weight: bold;
+    font-size: .9em;
+    line-height: 55px;
+    text-align: right;
+}
+
+input[type='text'], input[type='password'], input[type='email'] {
+    float: left;
+
+    width: 350px;
+    height: 35px;
+    border: 1px solild #aaa;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+.r {
+    line-height: 55px;
+}
+
+#buttons > li {
+    display: inline-block;
+}
+
+button {
+    width: 230px;
+    height: 50px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+
+    background-color: #eee;
+
+    font-size: .9em;
+}

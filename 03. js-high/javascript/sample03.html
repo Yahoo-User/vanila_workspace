@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample03</title>
+
+    <style>
+        body {
+            font-size: 1.3em;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>어서오세요</h1>
+
+
+    <script>
+        /* function prompt(message?: string, _default?: string): string */
+        // (1) 취소버튼을 누르면, null 리턴.
+        // (2) 아무것도 입력하지 않고 확인누르면, 빈문자열(empty string, "") 리턴
+        var name = prompt("이름을 입력하세요", 'default');
+        console.log('- name:', name);
+        console.log('- typeof name:', typeof name);     // string
+
+        document.write('<b><big>' + name + '</big></b>님, 환영합니다');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample15</title>
+
+    <link rel="stylesheet" href="../css/even.css">
+</head>
+
+<body>
+
+</body>
+    <h1>짝수끼리 더하기</h1>
+
+    <div id="result"></div>
+
+    <script>
+
+        var n = 100;
+        var sum = 0;
+
+
+        for(var counter=1; counter <= n; counter++) {
+
+            // if(counter % 2 == 1) {
+            if(counter % 2 != 0) {
+                continue;
+            } // if
+
+            sum += counter;
+
+            document.write(`${counter} ----- ${sum}<br>`);
+
+        } // for
+
+    </script>
+</html>

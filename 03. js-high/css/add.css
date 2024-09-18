@@ -1,0 +1,11 @@
+button {
+    border: 5px outset #ccc;
+    padding: 10px 15px;
+    margin: 20px auto;
+
+    font-size: 1em;
+}
+
+body {
+    text-align: center;
+}

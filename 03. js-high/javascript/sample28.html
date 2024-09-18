@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample28</title>
+
+    <style>
+
+        .accent {
+            border: 1px solid #222222;
+            padding: 15px 20px;
+
+            background-color: #eee;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <script>
+        
+        var newP = document.createElement('p');
+        var newText = document.createTextNode('Hello');
+
+        newP.appendChild(newText);
+
+        var newAttr = document.createAttribute('class');
+        newAttr.value = 'accent';
+
+        newP.setAttributeNode(newAttr);
+
+    </script>
+</body>
+
+</html>
