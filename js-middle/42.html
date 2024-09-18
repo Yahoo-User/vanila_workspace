@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+        <h3>&there4; 배열 메소드: sort</h3>
+
+        <hr/>
+
+        <ul>
+            <li class="note">(*중요*) 배열의 원소를 정렬</li>
+            <li class="note">(*중요*) 정렬의 결과: 원본배열도 정렬되고, 새로운 정렬된 배열도 반환</li>
+            <li>영문자는 알파벳 순서로 정렬</li>
+            <li>한글은 가나다 순으로 정렬</li>
+            <li class="note">(*중요*) 영문자는, 대문자를 우선 정렬한 후, 소문자를 정렬</li>
+            <li class="note">(*중요*) 따라서, 대소문자가 섞여잇는 경우, <code>toLowerCase()</code> 메소드를 사용하여,<br/>영문자를 모두 소문자로 변경한 후, 정렬해야 함</li>
+            <li class="note">(*중요*) 숫자는 기본적으로 최상위 자리부터 오름차순으로 정렬</li>
+            <li class="note">(*중요*) 숫자는 자릿수가 다른 수치가 저장되어있으면, 원하는 결과가 나오지 않을 수 있음:<br/>
+                예: <code>[ 13, 5, 28 ] &rarr; sort &rarr; [ 5, 13, 28 ]로 정렬되지 않고, [ 13, 28, 5 ]로 정렬됨</code><p/>
+
+                이러한 문제는 아래와 같이 sort() 메소드 매개변수에, 별도의 두 숫자의 비교함수를 만들어 제공해서 해결해야 됨
+            
+<div class="boxBorder">
+<pre>
+<code>
+    // 오른차순 정렬을 원할 경우
+    sort( function(a, b) {
+        return a - b
+    })
+
+    // 내림차순 정렬을 원할 경우
+    sort( function(a, b) {
+        return b - a
+    })
+</code>
+</pre>
+</div>
+            </li>
+        </ul>
+
+        <script>
+
+            console.clear()
+
+
+            var ndata1 = [ 19, 38, 67, 26, 55, 24, 53, 12, 31]              // 배열 리터럴 선언: 숫자의 자릿수가 동일
+            var ndata2 = [ 132, 2, 41, 123, 45, 1234, 6, 29, 4567 ]         // 배열 리터럴 선언: 숫자의 자릿수가 틀림(예상밖 결과)
+            var edata = [ 'Apple', 'Html', 'Game', 'Computer', 'Java' ]     // 배열 리터럴 선언
+            var kdata = [ '서울', '부산', '구포', '대구', '인천' ]            // 배열 리터럴 선언
+
+
+            console.log('1. 원본 ndata1:', ndata1)
+            console.log('\t-> sort 리턴값: ', ndata1.sort())
+            console.log('\t-> ndata1:', ndata1)
+
+
+            console.log('2. 원본 ndata2:', ndata2)
+
+            console.log('\t-> 기본 숫자정렬(예상밖) 결과: ', ndata2.sort())  // 자릿수가 틀린 숫자의 정렬: 예상밖 결과 산출
+            console.log('\t\t-> ndata2:', ndata2)
+
+            console.log('3. 숫자 오름차순 정렬 using comparator:', ndata2.sort(function(a,b) {
+                return a - b
+            }))
+            console.log('\t-> ndata2 using comparator:', ndata2)
+
+            console.log('4. 숫자 내림차순 정렬 using comparator:', ndata2.sort(function(a,b) {
+                return b - a
+            }))
+            console.log('\t-> ndata2 using comparator:', ndata2)
+
+
+            console.log('5. 원본 edata:', edata)
+            console.log('\t-> 영문 정렬: ', edata.sort())
+            console.log('\t-> edata:', edata)
+
+            console.log('6. 원본 kdata:', kdata)
+            console.log('\t-> 한글 정렬: ', kdata.sort())
+            console.log('\t-> kdata:', kdata)
+
+        </script>
+
+        <hr/>
+
+    </div>
+    
+</body>
+</html>

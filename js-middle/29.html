@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>29</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+        <h3>&there4; 함수선언과 호출</h3>
+
+<pre>
+    <code>
+    function 함수명(매개변수1, 매개변수2, ...) {    // 1. 함수선언
+        실행문장들
+
+        return 반환값   // optional
+    } // 함수명
+
+
+    함수명(전달인자1, 전달인자2, ...)               // 2. 함수호출
+    </code>
+</pre>
+
+        <h4>&rarr; 함수의 선언 및 호출방법(2가지)</h4>
+
+        <ol class="note">
+            <li>일반적인 방법(기본함수)</li>
+            <li>함수표현식으로 작성하는 방법(익명함수)</li>
+        </ol>
+
+        <hr/>
+
+    </div>
+
+    <div>
+        <h4>1. 일반적인 방법(기본함수)</h4>
+
+<pre>
+    <code>
+    function 함수명(매개변수1, 매개변수2, ...) {    // 1. 함수선언
+        실행문장들
+
+        return 반환값   // optional
+    } // 함수명
+
+
+    함수명(전달인자1, 전달인자2, ...)               // 2. 함수호출
+    </code>
+</pre>
+
+        <ul>
+            <li>함수를 선언하고 호출하는 가장 일반적인 방법</li>
+            <li>함수는 스크립트 내, 어디서나 선언가능</li>
+            <li class="note">(*중요*) 함수호출은, 함수선언 전/후 상관없이 할 수 있음</li>
+            <li class="note">(*중요*) 가급적, 함수선언 후에 호출할 것을 권장</li>
+            <li class="note">(*중요*) 함수호출은, 태그의 onclick 이벤트 속성을 통해서도 할 수 있음</li>
+        </ul>
+
+
+        <script>
+
+            console.log('1. Alpha experiment')
+
+            var text1 = "함수선언 전 호출"
+            var text2 = "함수선언 후 호출"
+
+
+            printMsg(text1)                 // 1. 함수선언 전 호출
+
+
+            function printMsg(msg) {        // 함수선언
+                console.log("\t+ msg:", msg, 'OK')
+
+            } // printMsg
+
+
+            printMsg(text2)                 // 2. 함수선언 후 호출
+
+        </script>
+
+
+        <script>
+
+            console.log('')
+            console.log('2. Beta experiment')
+            
+
+            function printMsg2(name, age) { // 함수선언
+                console.log('\t+', ' name =', name, ', age =', age)
+
+            } // printMsg2
+
+        </script>
+
+        <button type="button" onclick="printMsg2('홍길동', 23)">학생정보</button>
+
+        <hr/>
+
+    </div>
+
+    <div>
+        <h4 class="note">2. 함수표현식으로 작성하는 방법(익명함수)</h4>
+
+        <ul>
+            <li class="note">(*중요*) 함수표현식을 선언하여 변수에 할당하는 방법</li>
+            <li class="note">(*중요*) 변수를 함수명으로 사용</li>
+            <li>함수명이 생략되기 때문에, "<b class="note">익명함수</b>" 라고도 함</li>
+            <li class="note">(*중요*) 함수선언 전에, 함수호출을 할 수 없다는 점에 주의해야 함</li>
+            <li class="note">함수선언 전에, 함수호출을 하면 구문에러(Syntax error) 발생</li>
+        </ul>
+
+        <hr/>
+
+
+        <script>
+
+            console.log('')
+            console.log('3. Gamma experiment')
+
+
+            var text1 = "함수선언 전 호출 => 구문에러";
+            var text2 = "함수선언 후 호출만 가능";
+
+
+            // Uncaught TypeError: printMsg3 is not a function
+            printMsg3(text1)        // 함수선언 전 호출 -> 구문오류 발생
+
+
+            var printMsg3 = function (msg) {    // 익명함수선언
+                console.log('\t+', msg)
+
+            } // 익명함수, 함수객체를 변수에 저장
+
+
+            printMsg3(text2)
+
+        </script>
+
+        
+        <ul>
+            <li>함수표현식에 함수명을 정의할 수 있다</li>
+            <li class="note">(*중요*) 단, 함수명은 변수명과 다르게 정의해야 함</li>
+            <li class="note">(*중요*) 함수표현식에서 정의한 함수명은, 함수 외부에서 호출불가</li>
+        </ul>
+
+
+        <script>
+
+            var text1 = "함수선언 전 호출 => 구문에러";
+            var text2 = "함수선언 후 호출만 가능";
+            var text3 = "함수명으로 함수호출"
+
+
+            // Uncaught TypeError: printMsg3 is not a function
+            // printMsg4(text1)        // 함수선언 전 호출 -> 구문오류 발생
+
+
+            var printMsg4 = function myFunction(msg) {
+                console.log('\t+', msg)
+
+                // 재귀호출: 무한루프와 비슷
+                //          탈출조건이 없으면 결국 call stack 크기초과로 오류발생
+                //          Uncaught RangeError: Maximum call stack size exceeded
+
+                // myFunction("재귀호출")      // 함수실행블록 내에서 자기자신을 다시 호출함을 의미
+                // printMsg4("재귀호출")       // 함수실행블록 내에서 자기자신을 다시 호출함을 의미
+            } // 함수표현식을 변수에 할당
+
+
+            printMsg4(text2)
+
+            // Uncaught ReferenceError: myFunction is not defined
+            myFunction(text3)   // 함수명으로는 함수호출불가 (변수명으로 호출해야 함)
+
+        </script>
+
+
+        <hr/>
+
+        
+        <ul class="note">
+            <li>(*중요*) 기본함수와 익명함수가 같은 이름을 사용하여 함수선언가능</li>
+            <li>(*중요*) 단, 함수호출 시, "익명함수" 가 우선하여 호출됨</li>
+        </ul>
+
+
+        <script>
+
+            // function printMsg5() {                  // 기본함수선언
+            //     console.log("\t\t+ 기본함수 호출됨")
+            
+            // } // printMsg5
+
+
+            var printMsg5 = function() {            // 익명함수선언
+                console.log("\t\t+ 익명함수 printMsg5 호출됨")
+
+            } // printMsg5
+
+
+            function printMsg5() {                  // 기본함수선언
+                console.log("\t\t+ 기본함수 printMsg5 호출됨")
+
+            } // printMsg5
+
+
+            console.log('\t+ printMsg5 함수호출')
+
+            printMsg5()                   // 함수호출, 기본함수가 호출될까? 익명함수가 호출될까?
+
+        </script>
+
+    </div>
+    
+</body>
+</html>

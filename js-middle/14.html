@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+    
+    <div>
+
+        <h3>&there4; 논리연산자</h3>
+
+        <p>&radic; 주어진 조건을 논리적으로 연산하여, 참(true) 또는 거짓(false)을 반환</p>
+        <p class="note">&radic; 종류: (1) 일반논리연산자  (2) 비트논리연산자</p>
+
+    </div>
+
+    <hr/>
+
+    <div>
+
+        <h4>(1) 일반논리연산자</h4>
+
+        <ul>
+            <li class="note">논리곱(기호: <strong><code>&&</code></strong>, AND) : 두 피연산자의 값이 모두 참(true)일 때에만 참(true), 하나라도 거짓이면 거짓(false)</li>
+            <li class="note">논리합(기호: <strong><code>||</code></strong>, OR) : 두 피연산자의 값 중 하나라도 참이면 참(true), 모두 거짓이면 거짓(false)</li>
+            <li class="note">논리부정(기호: <strong><code>!</code></strong>, NOT) : 피연산자의 값이 참이면 참(true), 거짓이면 거짓(false)</li>
+        </ul>
+        
+    </div>
+
+    <hr/>
+
+
+    <script>
+
+        console.log("------------ 일반논리연산자 예제 -------------")
+
+        var x = 5
+        var y = 7
+
+        console.log("x =", x, ", y = ", y)
+        
+        var result              // undefined
+
+        console.log("result =", result)
+
+
+        result = (x < 10 && y > 10)
+        console.log("1. (x < 10 && y > 10) =", result)
+
+        result = (x < 10 || y > 10)
+        console.log("2. (x < 10 || y > 10) =", result)
+
+        result = ! (x < 10 && y > 10)
+        console.log("3. !(x < 10 && y > 10) = ", result)
+
+    </script>
+    
+
+    <div>
+
+        <h4>(2) 비트논리연산자 : 스킵합니다!!!</h4>
+
+    </div>
+
+</body>
+</html>

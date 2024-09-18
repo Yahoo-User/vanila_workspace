@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>58</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+
+        <h3>&there4; Array 생성자 배열객체 구조</h3>
+
+        <hr/>
+
+        <ul>
+            <li class="note">(*중요*) 객체 안에 여러 개의 배열을 만드는 방법</li>
+            <li>결과적으로 2차원 배열구조를 가짐</li>
+            <li class="note">(*중요*) 객체 접근시, <code>car[0]</code>와 같이 배열단위로 접근하거나, <code>car[0][0]</code>같이 배열안의 원소단위로 접근</li>
+        </ul>
+
+<div class="boxBorder bold">
+
+    <pre>
+        <code>
+
+    var car = new Array(
+        [ 'Sonata', 'blue', 100 ],
+        [ 'Jeep', 'red', 70 ],
+        [ 'Passt', 'white', 150 ]
+    )
+
+    car[0][1]
+    car[2][2]
+    car[0]
+            
+        </code>
+    </pre>
+
+</div>
+
+        <div>
+            <p id="car"></p>
+            <p>[ Car1 속성 ]</p>
+            <p id="car0"></p>
+            <p>[ Car2 속성 ]</p>
+            <p id="car1"></p>
+            <p>[ Car3 속성 ]</p>
+            <p id="car2"></p>
+        </div>
+
+
+        <script>
+
+            console.clear()
+
+
+            // 객체배열 생성
+            var car = new Array(
+                [ 'Sonata', 'blue', 100 ],      // 배열선언
+                [ 'Jeep', 'red', 70 ],          // 배열선언
+                [ 'Passt', 'white', 150 ]       // 배열선언
+            )
+
+            console.log('car:', car)
+
+
+            var cname = document.getElementById('car')
+            cname.textContent = 'car[2][1]: ' + car[2][1]
+
+            console.log('\t+ car[2][1]:', car[2][1])
+
+
+            for(var i=0; i<3; i++) {
+
+                var cname = document.getElementById('car'+i)
+                cname.textContent = car[i]
+
+                console.log('\t+ car['+i+']:', car[i])
+                
+            } // for
+
+        </script>
+
+    </div>
+    
+</body>
+</html>

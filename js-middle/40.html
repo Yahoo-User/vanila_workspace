@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>40</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+        <h3>&there4; 배열 메소드: concat</h3>
+
+        <hr/>
+
+        <ul class="note">
+            <li>(*중요*) 지정된 배열에, 두 개 이상의 데이터를 결합하거나, 다른 배열 객체를 결합</li>
+            <li>(*중요*) 함수처리결과: 배열 반환</li>
+        </ul>
+
+        <hr/>
+
+    </div>
+
+    <script>
+
+        console.clear()
+
+
+
+        var city1 = [ '서울', '부산', '대전' ]      // 배열 리터럴 선언
+        var city2 = [ '대구', '광주', '인천' ]      // 배열 리터럴 선언
+        var city3 = [ '전주', '부여', '세종' ]      // 배열 리터럴 선언
+
+        console.log('city1:', city1)
+        console.log('city2:', city2)
+        console.log('city3:', city3)
+
+        var data1 = city1.concat('수원', '오산')    // 배열 원소 추가하여 새로운 배열 반환
+        var data2 = city1.concat(city2)            // 한개의 다른 배열 결합하여 새로운 배열 반환
+        var data3 = city1.concat(city3, city2)     // 여러개의 다른 배열 결합하여 새로운 배열 반환
+
+        console.log('\t+ data1:', data1)
+        console.log('\t+ data2:', data2)
+        console.log('\t+ data3:', data3)
+
+    </script>
+    
+</body>
+</html>

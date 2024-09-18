@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05</title>
+</head>
+
+<body>
+
+    <script>
+
+        /**
+         * typeof : 6가지 type 검사
+         *      
+         *      number, string, boolean, object, function, undefined
+         * 
+         */
+
+        var num;
+        var obj = null;
+
+        //---------------------------------------------//
+
+        document.write('a. 100 : ', typeof 100, "<br>");                // `number`     type
+        document.write('b. 0.5 : ', typeof .5, "<br>");                 // `number`     type
+        document.write('c. 홍길동 : ', typeof "홍길동", "<br>");        // `string`     type
+        document.write('d. true : ', typeof true, "<br>");              // `boolean`    type
+        document.write('e. [1, 2, 3] : ', typeof [1, 2, 3], "<br>");    // `object`     type
+        document.write('f. { name: "홍길동", age: 25 } : ', 
+                        typeof { name: "홍길동", age: 25 }, "<br>");    // `object`     type
+        document.write('g. num : ', typeof num, "<br>");                // `undefined`  type
+        document.write('h. obj : ', typeof obj, "<br>");                // `object`     type
+
+        //---------------------------------------------//
+
+        console.log(100, typeof 100);
+        console.log(.5, typeof .5);
+        console.log("홍길동", typeof "홍길동");
+        console.log(true, typeof true);
+        console.log([1, 2, 3], typeof [1, 2, 3]);
+        console.log({ name: "홍길동", age: 24 }, typeof { name: "홍길동", age: 24 });
+        console.log(num, typeof num);
+        console.log(obj, typeof obj);
+
+        //---------------------------------------------//
+
+        if (typeof (100) == 'number') {
+            console.log('100 : number');
+        } // if
+
+    </script>
+
+</body>
+
+</html>

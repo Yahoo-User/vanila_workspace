@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>45</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+
+        <h3>&there4; 배열 메소드: push & pop</h3>
+
+        <hr/>
+
+        <ul>
+            <li class="note">(*중요*) 배열의 마지막 위치에 새로운 원소 추가하거나 삭제</li>
+            <li class="note">(*중요*) 배열의 원본도 영향을 받음</li>
+            <li class="note">(*중요*) pop 메소드와 더불어, 배열을 스택(stack) 구조로 활용할 때 사용</li>
+            <li>스택(Stack): 모든 원소의 삽입(push)과 삭제(pop)이, 배열의 한쪽 끝에서만 수행되는 자료구조</li>
+            <li>push : 배열의 마지막 위치에 원소 추가하고, 배열의 길이 반환</li>
+            <li>pop  : 배열의 마지막 위치에 원소를 삭제하고, 삭제한 원소를 반환</li>
+        </ul>
+
+        <hr/>
+
+    </div>
+
+
+    <script>
+
+        console.clear()
+
+
+        var stack = [ '서울', '부산', '구포', '대구', '대전' ]            // 배열의 리터럴 선언
+        console.log('1. 원본 stack:', stack)
+
+        var p1 = stack.push('청주', '세종')                             // 스택에 새로운 원소 추가(push)
+        console.log('2. stack.push("청주", "세종"):', p1)               // 현재 스택의 크기(길이) 반환
+        console.log('\t+ 원본 stack:', stack)
+
+        var p2 = stack.pop();                                         // 스택의 마지막 원소 삭제하고, 삭제한 원소 반환
+        console.log('3. stack.pop():', p2)                            // 현재 스택의 크기(길이) 반환
+        console.log('\t+ 원본 stack:', stack)
+
+    </script>
+    
+</body>
+</html>

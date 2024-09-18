@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>27</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+        <h3>&there4; label 문</h3>
+
+        <ul>
+            <li>break 문 - 제어를 block 바깥으로 옮김</li>
+            <li>continue 문 - 제어를 block 의 시작위치로 옮김</li>
+            <li class="note">label 문 - 제어를 직접 지정할 때 사용</li>
+            <li class="note">특히, 프로그램의 처리구조에 주의해야 함</li>
+            <li class="note">너무 많이 사용하면, 프로그램의 논리성이 약해짐</li>
+            <li class="note">순환구조로 프로그래밍하면, 무한반복에 빠질 수 있음</li>
+        </ul>
+
+        <hr/>
+
+    </div>
+
+
+    <script>
+
+        console.log("--- label 문 활용하기 ---")
+
+        var i, j        // undefined
+
+
+        outloop:                        // label 1
+        for(i = 0; i < 3; i++) {
+
+            console.log('outloop:', 'i =', i)
+
+
+            inloop:                     // label 2
+            for(j = 0; j < 3; j++) {
+                console.log('inloop:', 'j =', j)
+                console.log('\ti =', i, ', j =', j)
+
+
+                if(i===1 && j===0) {
+                    // console.log('goto outloop by continue')
+                    // continue outloop
+
+                    console.log('goto outloop by break')
+                    break outloop
+                } // if
+
+            } // inner-for
+
+
+        } // outer-for
+
+        console.log('Done.')
+
+    </script>
+    
+</body>
+</html>

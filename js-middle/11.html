@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11</title>
+</head>
+<body>
+    
+    <script>
+
+        function getGrade() {
+            var kor = 95       // 지역변수 정의
+
+            console.log("1. 지역변수:", "kor =", kor)
+
+            return kor
+        } // getGrade
+
+        getKor = getGrade()    // 함수호출 및 전역변수(getKor) 정의
+
+        console.log("2. 전역변수:", "getKor =", getKor)
+
+        // 함수외부에서 지역변수 참조(사용)불가, 오류발생
+        // Uncaught ReferenceError: kor is not defined
+        console.log("3. 지역변수:", "kor =", kor)          
+
+    </script>
+
+</body>
+</html>

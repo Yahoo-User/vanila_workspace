@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01</title>
+
+    <script>
+        var num = 1;
+
+        console.log('a. 실행순서:', num);                  // print num to web browser console.
+        document.write('a. 실행순서: ', num, '<br>');      // print num to web browser viewport.
+    </script>
+
+    <script>
+        var num = 2;
+
+        console.log('b. 실행순서:', num);                  // print num to web browser console.
+        document.write('b. 실행순서: ', num, '<br>');      // print num to web brwoser viewport.
+    </script>
+</head>
+
+<body>
+    <script>
+        num = 3;
+
+        console.log('c. 실행순서:', num);                  // print num to web browser console.
+        document.write('d. 실행순서: ', num, '<br>');      // print num to web browser viewport.
+    </script>
+
+    <script>
+        num = 4;
+
+        console.log('d. 실행순서:', num);                  // print num to web browser console.
+        document.write('d. 실행순서: ', num, '<br>');      // print num to web browser viewport.
+    </script>
+</body>
+
+</html>

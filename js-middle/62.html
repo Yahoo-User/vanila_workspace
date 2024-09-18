@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>62</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+        <h3>&there4; Date 객체의 toXXXXXString() 형태의 메소드</h3>
+
+        <hr/>
+
+        <h4 class="note">&rArr; 날짜를 특정 문자열 형태로 변환</h4>
+
+        <ol>
+            <li>toDateString</li>
+            <li>toISOString</li>
+            <li>toJSON</li>
+            <li>toLocaleDateString</li>
+            <li>toLocaleTimeString</li>
+            <li>toLocaleString</li>
+            <li>toString</li>
+            <li>toTimeString</li>
+            <li>toUTCString</li>
+        </ol>
+
+        <hr/>
+
+    </div>
+
+
+    <script>
+
+        console.clear()
+
+
+        var today = new Date()
+        console.log('today:', today)
+
+        console.log('\t+ toDateString:', today.toDateString())
+        console.log('\t+ toISOString:', today.toISOString())
+        console.log('\t+ toJSON:', today.toJSON())
+        console.log('\t+ toLocaleDateString:', today.toLocaleDateString())
+        console.log('\t+ toLocaleTimeString:', today.toLocaleTimeString())
+        console.log('\t+ toString:', today.toString())
+        console.log('\t+ toTimeString:', today.toTimeString())
+        console.log('\t+ toUTCString:', today.toUTCString())
+
+    </script>
+    
+</body>
+</html>

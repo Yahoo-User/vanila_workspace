@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>46</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+
+        <h3>&there4; 배열 메소드: shift & unshift</h3>
+
+        <hr/>
+
+        <ul class="note">
+            <li>(*중요*) 배열의 맨 처음 위치에 원소를 추가하거나 삭제</li>
+            <li>(*중요*) shift : 배열의 맨 처음위치의 원소를 삭제하고, 삭제된 원소 반환</li>
+            <li>(*중요*) unshift : 배열의 맨 처음위치에 원소를 삽입하고, 배열의 길이 반환</li>
+        </ul>
+
+        <hr/>
+
+    </div>
+
+
+    <script>
+
+        console.clear()
+
+
+        var kdata = [ '서울', '부산' ]          // 배열의 리터럴 선언
+        console.log('1. 원본 kdata:', kdata)
+
+
+        var p1 = kdata.unshift('청주', '세종')  // 배열의 맨 앞에 새로운 원소들 추가 및 배열길이 반환
+        console.log('2.kdata.unshift("청주", "세종"):', p1)
+        console.log('\t-> 원본 kdata:', kdata)
+
+
+        var p2 = kdata.shift()                  // 배열의 맨 앞의 원소 삭제 및 삭제된 원소 반환
+        console.log('3. kdata.shift():', p2)
+        console.log('\t-> 원본 kdata:', kdata)
+
+    </script>
+    
+</body>
+</html>

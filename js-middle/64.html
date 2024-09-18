@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>64</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+
+        <h3 class="note">&there4; 문서객체모델(DOM: Document Object Model)</h3>
+
+        <hr/>
+
+        <ul class="note">
+            <li>(*중요*) 웹문서를 메모리로 읽어들여 트리(tree) 구조로 변환</li>
+            <li>(*중요*) 웹문서의 각종 요소는, <b>요소노드(element node)</b>로 변환</li>
+            <li>(*중요*) 웹문서의 텍스트는, <b>텍스트 노드(text node)</b>로 변환</li>
+            <li>이렇게 변환된 트리구조를 이용하여, 자바스크립트로 웹문서 조작가능</li>
+            <li>(*중요*) 문서객체모델(DOM)의 트리구조를 순회(traverse)하면서, 웹문서의 구조, 내용, 스타일 등을 변경</li>
+        </ul>
+
+        <hr/>
+
+
+        <h4 class="note">1. 문서객체 생성</h4>
+
+        <ul>
+            <li class="note">웹문서 안에 문서객체를 포함시키면, 동적인 웹문서를 만들 수 있음: </li>
+            <li class="none_style">&nbsp;&nbsp;Step.1: 문서객체는 요소노드와 텍스트노드를 생성한 후, 요소노드에 텍스트노드를 연결</li>
+            <li class="none_style">&nbsp;&nbsp;Step.2: 요소노드를 body 객체에 추가하여 만듦</li>
+        </ul>
+
+
+        <div class="boxBorder bold">
+
+            <h4 class="note">&nbsp;&nbsp;&nbsp;문서객체(DOM) 생성 관련 메소드</h4>
+
+            <ol class="note">
+                <li>createElement() : 요소노드 생성</li>
+                <li>createTextNode() : 텍스트노드 생성</li>
+                <li>appendChild() : 요소노드를 body 객체에 추가</li>
+            </ol>
+
+        </div>
+
+        <p/>
+
+
+        <script>
+
+            function add1() {
+                console.log("add1() invoked.")
+
+                var headerNode = document.createElement('h4')                     // 새로운 요소노드 생성
+                var textNode = document.createTextNode('내 이름은 홍길동입니다')    // 새로운 텍스트노드 생성
+
+                console.log("\t+ headerNode:", headerNode)
+                console.log("\t+ textNode:", textNode)
+
+
+                headerNode.appendChild(textNode)        // 요소노드에 텍스트노드 추가
+                document.body.appendChild(headerNode)   // body 노드에 새로이 생성한 요소노드 추가
+            } // add1
+
+        </script>
+
+
+        <div><button onclick="add1()">당신의 이름은 무엇입니까?</button></div>
+
+
+
+        <h4 class="note">2. 문서객체의 속성값 설정</h4>
+
+        <div class="boxBorder bold">
+            <p>&nbsp;&nbsp;문서객체의 속성값 설정 방법 2가지:</p>
+
+            <ol class="note">
+                <li>객체변수(참조변수) 사용 : <code>참조변수.속성 = 속성값</code></li>
+                <li>속성설정 메소드 사용 : <code>setAttribute(속성, 값)</code></li>
+            </ol>
+        </div>
+
+        <p/>
+
+
+        <script>
+
+            function add2() {
+                console.log("add2() invoked.")
+
+                var img = document.createElement('img')
+
+                img.src = 'https://picsum.photos/200/200'
+
+                // img.width = 100
+                // img.height = 122
+
+                img.setAttribute('width', 100)
+                img.setAttribute('height', 122)
+
+                document.body.appendChild(img)
+            } // add
+
+        </script>
+
+
+        <div><button onclick="add2()">이미지 추가</button></div>
+
+
+
+        <h4 class="note">3. 문서객체의 스타일 설정</h4>
+
+        <div class="boxBorder bold">
+            <p>&nbsp;&nbsp;문서객체의 스타일 설정은 아래와 같이 스타일 속성을 변경:</p>
+
+            <p>&nbsp;&nbsp;document.getElemenetById(id).style.속성명 = 속성값</p>
+        </div>
+
+        <p/>
+
+
+        <script>
+
+            function textStyle() {
+                document.getElementById('msg').style.color = 'blue'
+                document.getElementById('msg').style.fontSize = '30px'
+                document.getElementById('msg').style.fontStyle = 'italic'
+
+            } // textStyle
+
+            function textHidden() {
+                // document.getElementById('msg').style.visibility = 'hidden'
+                document.getElementById('msg').style.display = 'none'
+
+            } // textHidden
+
+            function textVisible() {
+                // document.getElementById('msg').style.visibility = 'visible'
+                document.getElementById('msg').style.display = 'block'
+
+            } // textVisible
+
+        </script>
+
+
+        <div>
+            <p id="msg">문서객체 스타일 변경하기</p>
+
+            <input type="button" value="텍스트 스타일 변경" onclick="textStyle()">
+            <input type="button" value="텍스트 숨기기" onclick="textHidden()">
+            <input type="button" value="텍스트 보이기" onclick="textVisible()">
+        </div>
+
+        <p/>
+        
+
+    </div>
+    
+</body>
+</html>

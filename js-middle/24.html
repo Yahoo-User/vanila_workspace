@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+
+        <h3>&there4; while 문</h3>
+
+<pre>
+    <code>
+
+    while(조건식) {
+
+        실행문장들
+
+    } // while
+
+    </code>
+</pre>
+
+    </div>
+
+    <hr/>
+
+
+    <script>
+
+        console.log("--- 1 ~ 100 까지의 합 구하기 ---")
+
+        var x = 1
+        var sum = 0
+
+        while(x <= 100) {
+            sum += x
+
+            console.log('x =', x, ', sum =', sum)
+
+            // document.write('&raquo;')
+
+            ++x
+        } // while
+
+    </script>
+
+
+    <script>
+
+        console.log("--- 1 ~ 10000 까지의 합 구하기 ---")
+
+
+        var x = 1
+        var sum = 0
+
+
+        while(1) {
+            sum += x
+
+            // document.write('&raquo;')
+            
+            if(x == 10001) {
+                break
+            } // if
+
+            ++x
+        } // infinite loop
+
+        console.log('sum =', sum, ', x =', x)
+
+    </script>
+    
+
+</body>
+</html>

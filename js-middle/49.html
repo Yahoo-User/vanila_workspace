@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>49</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+
+        <h3>&there4; 배열 메소드: map</h3>
+
+        <hr/>
+
+        <ul class="note">
+            <li>(*중요*) 배열의 원소(데이터)를 함수의 인자로 전달</li>
+            <li>(*중요*) 함수의 수행결과를 반환 받아, 새로운 배열 생성(기존 원소 &rarr; 새로운 원소로 변환: 매핑)</li>
+            <li>(*중요*) 기존의 배열 원소는 그대로 존재</li>
+        </ul>
+
+        <hr/>
+
+    </div>
+
+
+    <script>
+
+        console.clear()
+
+
+        var data = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ]     // 배열 리터럴 선언
+        console.log('원본 data:', data)
+
+
+        function mapArr(value) {    // 함수선언: value 매개변수로, 배열의 각 원소가 자동전달됨
+            console.log('>>> mapArr('+value+') invoked.')
+
+            return value * value    // 전달된 배열의 각 원소에 대한 변환하여 반환 (mapping)
+        } // mapArr
+
+
+        var mapData = data.map(mapArr)       // mapping 수행
+        console.log('\t+ mapData:', mapData)
+
+    </script>
+    
+</body>
+</html>

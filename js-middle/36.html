@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>36</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+
+        <h4 class="note">&psi; (2) 배열 객체(Array Object)로 생성하기</h4>
+
+        <ul>
+            <li>자바스크립트에서 <b class="note">배열은 객체로 취급</b></li>
+            <li class="note">(*중요*) 따라서, Array 생성자를 이용하여 배열객체 생성가능</li>
+            <li class="note">(*중요*) 생성자를 사용하여 배열을 생성할 때에는 new 연산자 사용</li>
+            <li>배열 객체 생성방법:<br/>
+                <code class="note">var 배열명 = new Array(원소1, 원소2, ... )</code>
+            </li>
+            <li>아래는 city 배열객체를 생성하고, 초기값을 할당한 예:<br/>
+                <code class="note">var city = new Array('Seoul', 'Pusan', 'Incheon')</code>
+            </li>
+            <li class="note">(*중요*) 배열 객체 역시, 배열선언과 초기값 할당을 따로 수행 가능:<p/>
+            
+                <div class="boxBorder">
+<pre>
+    <code>
+    var city = new Array()      // 배열객체 생성(원소들 없이, 비어있는 배열)
+
+    city[0] = 'Seoul'           // 배열에 개별 원소 할당
+    city[1] = 'Pusan'           // 배열에 개별 원소 할당
+    city[2] = 'Incheon'         // 배열에 개별 원소 할당
+    </code>
+</pre>
+                </div>
+            </li>
+            <li class="note">(*중요*) 배열객체로 배열을 생성할 경우, 배열에 공백 원소(데이터)를 사용불가!!!</li>
+            <li class="note">(*중요*) 만일, 배열에 공백 데이터(원소)가 포함되어 있으면, 아래의 오류발생:<br/>
+                <code class="note">Uncaught SyntaxError: Unexpected token</code>
+            </li>
+        </ul>
+
+        <hr/>
+
+
+        <script>
+
+            console.log("---------------------------------------------------")
+
+            var city = new Array( 'Seoul', 'Pusan', 'Incheon' )     // 배열객체 생성 by new, Array constructor
+            console.log("1. city:", city)
+
+
+            function printArr() {                       // 함수선언
+                console.log('>>> printArr() invoked.')
+
+                var i
+
+                for(i=0; i<city.length;i++) {
+                    console.log('\t+ city['+i+']:', city[i], '(', typeof city[i], ')')
+                } // for
+            } // printArr
+
+
+            printArr()                                  // 함수호출
+
+        </script>
+
+
+        <ul>
+            <li>배열객체의 생성 확인방법(3가지):
+
+                <ol>
+                    <li><b class="note">typeof</b> city : 타입확인연산자 typeof 사용, 결과: object</li>
+                    <li><b class="note">Array.isArray</b>(city) : 배열객체의 메소드인 isArray() 사용, 결과: true</li>
+                    <li>city <b class="note">instanceof</b> Array : Array 생성자의 인스턴스인지 확인, 결과: true</li>
+                </ol>
+
+            </li>
+        </ul>
+
+
+        <script>
+
+            console.log("---------------------------------------------------")
+
+            var city = new Array( 'Seoul', 'Pusan', 'Incheon' )     // 배열 객체 생성 using Array constructor
+            // var city = "Seoul, Pusan, Incheon"      // 배열객체가 아닐 경우: 문자열 생성
+            // var city = new Array( 'Seoul', '', 'Incheon')  // 배열객체 생성: 공백 데이터(원소)가 포함
+
+            // Uncaught SyntaxError: Unexpected token ','
+            // var city = new Array( 'Seoul', , 'Incheon') // 배열객체 생성: 공백 데이터(원소) 포함될 것으로 예상: 오류발생
+
+            console.log("2. city:", city)
+
+
+            function printArr() {       // 함수선언
+                console.log('>>> printArr() invoked.')
+
+                if( city instanceof Array ) {   // city 가 Array 생성자의 인스턴스(객체)인지 확인
+                    console.log('city 배열이 생성되었습니다.')
+
+                    var i=0
+                    for( ; i< city.length; i++) {
+                        console.log('\t+ city['+ i + ']:', city[i], '(', typeof city[i], ')')
+                    } // for
+                } else {
+                    console.log('\t+ No Array. typeof:', typeof city)
+                    // console.log('\t+ city:', city)
+                } // if-else
+            } // printArr
+
+
+            printArr()                                  // 함수호출
+
+        </script>
+
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>31</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+
+        <h3>&there4; 전달인자(arguments)와 매개변수(parameters)</h3>
+
+<pre>
+    <code>
+
+    function 함수명(매개변수1, 매개변수2, ...) {    // 함수선언
+        실행문장들
+
+        return 반환값   // optional
+    } // 함수명
+
+
+    result = 함수명(전달인자1, 전달인자2, ...)      // 함수호출
+
+    </code>
+</pre>
+
+        <hr/>
+
+        <ol>
+            <li>전달인자와 매개변수는 개수도 같고, 데이터 타입도 같음</li>
+            <li>개수는 개발자가 작성</li>
+            <li class="note">(*중요*) 매개변수의 데이터 타입은, 전달인자의 데이터 타입으로 자동결정되므로, 따로 설정안함</li>
+            <li class="note">(*중요*) 함수명이 같고, 매개변수가 다른 함수가 여러개 있다면, 맨 마지막에 선언된 함수가 호출됨 (**함수 오버로딩 지원안함**)</li>
+            <li class="note">(*중요*) 전달인자의 개수가 0 이거나, 매개변수보다 개수가 적으면, NaN(Not-a-Number) 출력</li>
+            <li class="note">(*중요*) 전달인자의 개수가 매개변수보다 개수가 많으면, 첫 전달인자부터 적용된 후, 나머지 전달인자 값은 **undefined**로 처리</li>
+        </ol>
+
+        <hr/>
+
+        <div>
+
+            <ul>
+                <li class="note">(*중요*) NaN(Not-a-Number) : 연산과정에서 잘못된 입력을 받았음을 나타내는 기호</li>
+                <li class="note">(*중요*) 숫자를 반환하지 못할 때 출력</li>
+                <li class="note">(*중요*) 자바스크립트에서 NaN은 전역변수임</li>
+                <li>NaN 여부를 판단가능한 함수 제공:<br/>
+                    isNaN(NaN) &rArr; true<br/>
+                    isNaN(0) &rArr; false<br/>
+                    isNaN('string') &rArr; true<br/>
+                    isNaN('0') &rArr; false
+                </li>
+            </ul>
+
+            <hr/>
+
+
+            <script>
+
+                console.log('1. typeof NaN:', typeof NaN, NaN )
+                console.log('2. isNaN(NaN) =>', isNaN(NaN) )
+                console.log('3. isNaN(0) =>', isNaN(0) )
+                console.log('4. isNaN(1) =>', isNaN(1) )
+                console.log('5. isNaN(.1) =>', isNaN(.1) )
+                console.log('6. isNaN("string") =>', isNaN('string') )
+                console.log('7. isNaN("0") =>', isNaN('0') )
+                console.log('8. isNaN("a") =>', isNaN('a') )
+
+            </script>
+
+
+            <script>
+
+                console.log("-------------------------------------------")
+
+
+                // 매개변수의 개수, 순서가 틀리고 함수명이 동일한 여러 함수선언 (함수오버로딩을 지원할까?)
+
+                function add() {                        // 함수선언
+                    console.log('>>> add() invoked.')
+
+                    var sum = 1
+
+                    return sum
+                } // add
+
+
+                function add(x) {                       // 함수선언
+                    console.log('>>> add(x) invoked.')
+                    console.log('\t+ x =', x)
+
+                    var sum = x + 1
+
+                    return sum
+                } // add
+
+
+                function add(x, y) {                    // 함수선언
+                    console.log('>>> add(x, y) invoked.')
+                    console.log('\t+ x =', x, ', y =', y)
+
+                    var sum = x + y
+
+                    return sum
+                } // add
+
+                function add(invocation, x, y, z) {     // 함수선언
+                    console.log('>>> add(invocation, x, y, z) invoked.')
+                    console.log('\t+ invocation:', invocation)
+                    console.log('\t+ x =', x, ', y =', y, ', z =', z)
+
+                    var sum = x + y + z
+                    
+                    return sum
+                } // add
+
+
+                // 매개변수의 개수가 틀리고 이름이 동일한 함수가 여러개 선언되어 있으면,
+                // 이 중, 가장 마지막에 선언된 함수만 호출됨!!! (*중요*)
+                // 즉, 함수 오버로딩은 지원하지 않음!!! (*중요*)
+
+                var r0 = add("add()");                          console.log('1. 함수호출인자 없음: r0 =', r0)
+                var r1 = add("add(1)", 1);                      console.log('2. 함수호출인자 부족: r1 =', r1)
+                var r2 = add("add(2, 3)", 2, 3);                console.log('3. 함수호출인자 부족: r2 =', r2)
+                var r3 = add("add(4, 5, 6)", 4, 5, 6);          console.log('4. 함수호출인자 맞음(정상호출): r3 =', r3)
+                var r4 = add("add(7, 8, 9, 10)", 7, 8, 9, 10);  console.log('5. 함수호출인자 많음: 전달인자 중, 7/8/9만 인자값으로 적용, 나머지 남는 인자는 undefined로 처리: r4 =', r4)
+
+            </script>
+
+        </div>
+
+    </div>
+    
+</body>
+</html>

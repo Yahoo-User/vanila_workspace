@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+        
+        <h3>&there4; 비교연산자</h3>
+
+        <p>&radic; 두 피연산자의 값을 비교하여, 참(true) 또는 거짓(false) 값을 반환</p>
+        <p>&radic; 아래와 같은 비교연산자가 있음 :</p>
+
+        <ol>
+            <li>== (값이 같다)</li>
+            <li class="note">=== (값과 타입 2개가 모두 같다)</li>
+            <li>!= (값이 다르다)</li>
+            <li class="note">!== (값 또는 타입 2개가 다르다)</li>
+            <li>&lang; (보다 작다)</li>
+            <li>&lang;= (작거나 같다)</li>
+            <li>&rang; (보다 크다)</li>
+            <li>&rang;= (크거나 같다)</li>
+        </ol>
+
+    </div>
+
+
+    <div>
+
+        <script>
+
+            var x = 5           // 전역변수 정의
+            var y = "5"         // 전역변수 정의
+
+            console.log("1. x =", x, "(", typeof x, ")", ", y =", y, "(", typeof y, ")")
+
+
+            var result      // 전역변수 정의
+
+            console.log("2. result =", result)
+
+            result = (x > y)                        // 값이 보다 크다
+            console.log("3. x > y :", result)
+
+            result = (x >= y)                       // 값이 같거나 크다
+            console.log("4. x >= y:", result)
+
+            result = (x < y)                        // 값이 보다 작다
+            console.log("5. x < y:", result)
+
+            result = (x <= y)                       // 값이 같거나 작다
+            console.log("6. x <= y:", result)
+
+            result = (x == y)                       // 값이 같다
+            console.log("7. x == y :", result)
+
+            result = (x === y)                      // 값과 타입 모두 같다
+            console.log("8. x === y :", result)
+
+            result = (x != y)                       // 값이 다르다
+            console.log("9. x != y :", result) 
+
+            result = (x !== y)                      // 값 또는 타입이 다르다
+            console.log("10. x !== y :", result)
+
+        </script>
+
+    </div>
+
+</body>
+</html>

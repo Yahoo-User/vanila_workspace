@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>28</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+        <h3>&there4; 전역변수와 지역변수의 정의</h3>
+
+        <p>The scope of a variable is the region of your program in which it is defined. JavaScript variables have only two scopes.</p>
+
+        <ul>
+            <li class="note">Global Variables − A global variable has a global scope which means it can be defined anywhere in your JavaScript code.</li>
+            <li class="note">Local Variables − A local variable will be visible only within a function where it is defined.<br/>Function parameters are always local to that function.</li>
+        </ul>
+
+        <p>Within the body of a function, a local variable takes precedence over a global variable with the same name.<br/>
+            If you declare a local variable or function parameter with the same name as a global variable, <br/>
+            you effectively hide the global variable.</p>
+
+        <ul>
+            <li class="note">Javascript has function scope: Each function creates a new scope.</li>
+            <li>Scope determines the accessibility (visibility) of these variables.</li>
+            <li class="note">Variables defined inside a function are not accessible (visible) from outside the function.</li>
+            <li class="note">Variables declared within a JavaScript function, become LOCAL to the function.</li>
+            <li class="note">Local variables have Function scope: They can only be accessed from within the function.</li>
+            <li>Since local variables are only recognized inside their functions,<br/>
+                variables with the same name can be used in different functions.</li>
+            <li class="note">Local variables are created when a function starts, and deleted when the function is completed.</li>
+            <li class="note">A variable declared outside a function, becomes GLOBAL.</li>
+            <li>A global variable has global scope: All scripts and functions on a web page can access it. </li>
+            <li class="note">In JavaScript, objects and functions are also variables.</li>
+            <li>Scope determines the accessibility of variables, objects, and functions from different parts of the code.</li>
+            <li class="note">If you assign a value to a variable that has not been declared,<br/>
+                it will automatically become a GLOBAL variable.</li>
+            <li class="note">All modern browsers support running JavaScript in "Strict Mode".<br/>
+                In "Strict Mode", undeclared variables are not automatically global.</li>
+            <li>With JavaScript, the global scope is the complete JavaScript environment.</li>
+            <li class="note">In HTML, the global scope is the window object.<br/>
+                All global variables belong to the window object.</li>
+            <li class="note">Warning: Do NOT create global variables unless you intend to.<br/>
+                Your global variables (or functions) can overwrite window variables (or functions).<br/>
+                Any function, including the window object, can overwrite your global variables and functions.</li>
+            <li class="note">The Lifetime of JavaScript Variables:<br/>
+                (1) The lifetime of a JavaScript variable starts when it is declared.<br/>
+                (2) Local variables are deleted when the function is completed.<br/>
+                (3) In a web browser, global variables are deleted when you close the browser window (or tab).</li>
+            <li class="note">Function Arguments: Function arguments (parameters) work as local variables inside functions.</li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>&there4; 전역변수와 지역변수에 대한 다양한 실험</h3>
+
+        <hr/>
+
+        <h4>&Alpha; experiment</h4>
+
+        <script>
+
+            console.log('1. Alpha experiment')
+
+
+            {
+                var blockVar1 = 10       // global variable definition
+
+                console.log('\tblockVar1 =', blockVar1, 'in the user-defined block.')
+            } // user-defined block
+
+
+            console.log('\tblockVar1 =', blockVar1, 'out of the user-defined block.')
+
+            console.log('\t\t+ blockVar1 is a **GLOBAL** variable.')
+
+        </script>
+
+        <hr/>
+
+        <h4>&Beta; experiment</h4>
+
+        <script>
+
+            console.log('')
+            console.log('2. Beta experiment')
+
+
+            function f() {
+                var blockVar2 = 20      // LOCAL variable definition
+
+                console.log('\tblockVar2 =', blockVar2, 'in the function.')
+            } // f
+
+
+            f()     // 함수호출
+
+            // Error: Uncaught ReferenceError: blockVar2 is not defined
+            // console.log('\tblockVar2 =', blockVar2, 'out of the function.')
+
+            console.log('\t\t+ blockVar2 is a **LOCAL** variable.')
+
+        </script>
+
+        <hr/>
+
+        <h4>&Gamma; experiment</h4>
+
+        <script>
+
+            console.log('')
+            console.log('3. Gamma experiment')
+
+
+            function f() {
+                blockVar3 = 30      // global variable definition
+
+                console.log('\tblockVar3 =', blockVar3, 'in the function.')
+            } // f
+
+
+            f()     // 함수호출
+
+
+            console.log('\tblockVar3 =', blockVar3, 'out of the function.')
+
+            console.log('\t\t+ blockVar3 is a **GLOBAL** variable.')
+
+        </script>
+    </div>
+    
+</body>
+</html>

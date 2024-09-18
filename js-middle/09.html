@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+        <h4>
+            <ul class="none_style">
+                <li>&radic; 지역변수는 함수가 호출되었을 때에만 사용되고, 함수가 종료되면 사라짐 (***)</li>
+                <li class="note">&radic; *중요1* : 함수내에서, 지역변수 선언시, var 키워드를 생략하면, 해당변수는 자동으로 전역변수로 승급됨 (***)</li>
+                <li class="note">&radic; *중요2* : 함수외부에서, 함수내부의 지역변수 참조(사용)시, 오류발생(ReferenceError)</li>
+                <li class="note">&radic; *중요3* : 전역변수는 선언위치와 상관없이 우선적으로 처리하므로, 나중에 선언되어도 전역변수는 가장 먼저 생성됨</li>
+                <li class="note">&radic; *중요4* : 지역변수는 함수가 호출될 때에만 사용가능</li>
+            </ul>
+        </h4>
+
+
+        <script>
+
+            function getGrade() {
+                var localKor = 95            // 지역변수 정의
+
+                console.log("1. 지역변수:", "localKor =", localKor)
+            } // getGrade
+
+            getGrade()                  // 함수호출
+
+
+            // 함수 외부에서 지역변수 참조(사용)시, 오류발생
+            // Uncaught ReferenceError: localKor is not defined
+            console.log("2. 지역변수:", "localKor =", localKor)
+
+
+            // **중요**: 전역변수는 선언위치와 상관없이, 우선적으로 처리하므로, 
+            //           나중에 선언되어도 전역변수는 가장 먼저 생성됨
+
+            // var localKor = 100               // 지역변수와 이름이 동일한, 전역변수 정의
+
+            // console.log("3. 전역변수:", "localKor =", localKor)
+
+        </script>
+
+    </div>
+
+
+</body>
+</html>

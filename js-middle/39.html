@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>39</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+        <h3>&there4; 배열 메소드: join</h3>
+
+        <hr/>
+
+        <ul class="note">
+            <li>(*중요*) 배열에 저장된 모든 원소를 문자열로 변환한 후, 연결하여 출력</li>
+            <li>(*중요*) 문자열 연결 시, 구분자(separator)는 기본적으로, 쉼표(,) 사용</li>
+            <li>(*중요*) 별도로 구분자(separator)를 문자 또는 기호(*, /, #, $ 등) 지정가능</li>
+        </ul>
+
+        <hr/>
+
+    </div>
+
+
+    <script>
+
+        console.clear()
+
+        var city = [ '서울', '부산', '대전' ]       // 배열 리터럴 선언
+        console.log('city:', city)
+
+        var joinData1 = city.join()             // 기본 구분자: 쉼표(,)
+        var joinData2 = city.join('-')          // 별도 구분자 지정: -
+        var joinData3 = city.join(' 그리고 ')    // 별도 구분자 지정: 그리고
+
+        console.log('\t+ joinData1:', joinData1)
+        console.log('\t+ joinData2:', joinData2)
+        console.log('\t+ joinData3:', joinData3)
+
+    </script>
+    
+</body>
+</html>

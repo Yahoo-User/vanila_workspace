@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+
+    <style>
+
+        table, th, td {
+            border: 1px solid blue;
+        }
+
+        table {
+            width: 90%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        .type {
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div>
+
+        <h3>&there4; 제어문</h3>
+
+        <table>
+            <tr>
+                <th>유형</th>
+                <th>종류</th>
+                <th>설명</th>
+            </tr>
+            <tr>
+                <td class="type bold">조건문</td>
+                <td>
+                    <ul>
+                        <li>if</li>
+                        <li>if~else</li>
+                        <li>Multiple if~else</li>
+                        <li>switch~case</li>
+                    </ul>
+                </td>
+                <td class="bold">&nbsp;조건에 따라 다음 문장을 선택적으로 실행</td>
+            </tr>
+            <tr>
+                <td class="type bold">반복문</td>
+                <td>
+                    <ul>
+                        <li>for</li>
+                        <li>while</li>
+                        <li>do~while</li>
+                    </ul>
+                </td>
+                <td class="bold">&nbsp;동일한 실행문이나 연산을 반복처리</td>
+            </tr>
+            <tr>
+                <td class="type bold">보조<br/>제어문</td>
+                <td>
+                    <ul>
+                        <li>continue</li>
+                        <li>break</li>
+                    </ul>
+                </td>
+                <td class="bold">&nbsp;조건문을 건너뛰거나, 반복수행을 종료. 조건문/반복문 내에서 사용</td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div>
+
+        <script>
+
+            var gender = 'M'
+            var age = 21
+
+            console.log('gender =', gender, ', age =', age)
+
+            if( gender == 'M' ) {
+
+                if( age >= 19 ) {
+                    console.log("male and adult")
+                } else {
+                    console.log('male and minor')
+                } // inner if-else
+
+            } else {
+
+                if( age >= 19 ) {
+                    console.log("female and adault")
+                } else {
+                    console.log('female and minor')
+                } // inner if-else
+
+            } // // outer if-else
+
+        </script>
+
+    </div>
+
+</body>
+</html>

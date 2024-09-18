@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+
+        <h3>&there4; switch ~ case 문 #1</h3>
+
+<pre>
+    <code class="bold">
+
+        switch(constant) {
+            case n1:
+                실행문장들
+
+                break
+            case n2:
+                실행문장들
+
+                break
+            default:
+                기본 실행문장들
+
+                break
+        } // switch
+
+    </code>
+</pre>
+
+    </div>
+
+
+    <hr/>
+
+
+    <div>
+
+        <ul>
+            <li class="note">Date 객체의 getDay() 함수는 요일을 0~6 까지의 상수값으로 반환</li>
+            <li class="note">0 - Sunday, 1 - Monday, ..., 6 - Saturday</li>
+        </ul>
+
+
+        <script>
+
+            var day                     // undefined
+            var now = new Date()        // Date 객체 생성
+            var week = now.getDay()     // 현재 요일 얻기 from Date 객체
+
+            console.log('1. now =', now)
+            console.log('2. week =', week)
+
+
+            switch(week) {
+                case 0 :             // Sundjay
+                    day = '일요일'
+
+                    break
+                case 1 :             // Monday
+                    day = '월요일'
+
+                    break
+                case 2 :             // Tuesday
+                    day = '화요일'
+
+                    break
+                case 3 :             // Wednesday
+                    day = '수요일'
+
+                    break
+                case 4 :             // Thursday
+                    day = '목요일'
+
+                    break
+                case 5 :             // Friday
+                    day = '금요일'
+
+                    break
+                case 6 :             // Saturday
+                    day = '토요일'
+
+                    break
+                default :            // Unknown day
+                    day = '알 수 없는 요일'
+            } // switch
+
+            console.log('3. day =', day)
+
+        </script>
+
+    </div>
+    
+</body>
+</html>

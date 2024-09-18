@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>41</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+        <h3>&there4; 배열 메소드: reverse</h3>
+
+        <hr/>
+
+        <ul>
+            <li class="note">(*중요*) 배열 원소의 순서를 반대로 정렬</li>
+            <li>배열의 첫번째 원소가 마지막 원소가 되고, 마지막 원소가 첫번째 원소가 됨</li>
+            <li class="note">(*중요*) 이때 기존의 배열의 순서가 반대가 됨</li>
+            <li class="note">(*중요*) 배열의 순서를 뒤집은 새로운 배열도 반환</li>
+            <li>배열의 원소가 거꾸로 저장되어있을 때, 순서를 바꾸기 위해 많이 사용</li>
+        </ul>
+
+        <hr/>
+
+    </div>
+
+    <script>
+
+        console.clear()
+
+
+        var arr = [ 9, 8, 7, 6, 5, 4, 3, 2, 1 ]    // 배열 리터럴 선언
+        console.log('arr:', arr)
+
+        var rarr = arr.reverse()                  // 기존 배열 순서도 뒤집고, 새로운 배열로도 반환
+
+        console.log('\t+ arr after revese:', arr)
+        console.log('\t+ rarr:', rarr)
+
+    </script>
+    
+</body>
+</html>

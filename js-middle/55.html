@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>55</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+
+        <h3>&there4; 사용자정의객체 생성</h3>
+
+        <hr/>
+
+        <p>자바스크립트에서, <b class="note">사용자정의객체</b>를 생성하는 방법은 아래와 같이 2가지 방법이 있음</p>
+
+        <ol class="note">
+            <li>객체변수를 이용하는 방법</li>
+            <li>생성자 함수를 이용하는 방법</li>
+        </ol>
+
+        <hr/>
+
+        <h4 class="note">(1) 객체변수(= 참조변수)를 이용하는 방법</h4>
+
+        <ul>
+            <li>객체를 생성하여, <b>객체변수(=참조변수)에 저장</b>하는 방법</li>
+            <li class="note">(*중요*) 속성: 속성명과 값의 집합으로 정의</li>
+            <li class="note">(*중요*) 메소드: 함수형식으로 정의</li>
+            <li>객체의 <b class="note">속성</b>에 접근하는 방법: <b class="note">마침표(.)</b> 또는 <b class="note">대괄호([])</b> 사용</li>
+            <li class="note">마침표(.): 객체멤버접근연산자(member operator), 왼쪽: 객체이름이 옴, 오른쪽: 속성 또는 메소드가 옴<br/>
+                형식: 객체이름.속성 또는 객체이름.메소드
+            </li>
+        </ul>
+
+<div class="boxBorder bold">
+
+    <pre>
+        <code>
+
+    // 자동차 객체생성 및 객체변수(=참조변수) car 에 객체참조 저장
+    var car = {     // JSON(JavaScript Object Notation) 형식으로 객체의 속성과 메소드 정의
+
+        name: 'Sonata',         // 속성1 : 값1
+        speed: 100,             // 속성2 : 값2
+        color: 'white',         // 속성3 : 값3
+        door: 4,                // 속성4 : 값4
+
+        // 메소드 정의:  메소드명: (익명)함수 정의 형식으로 정의
+        start: function() {
+            return this.speed + 10
+        } // start
+
+    }; // 사용자정의객체 생성 (*주의*: 끝에 세미콜론(;) 누락하지말것!)
+            
+        </code>
+    </pre>
+
+</div>
+
+
+        <p/>
+
+
+<div class="boxBorder bold">
+
+    <pre>
+        <code>
+
+    &infin; 생성된 객체의 멤버(속성 및 메소드) 접근방법
+    &nbsp;&nbsp;&nbsp;&rarr;객체의 속성 접근: (1) 도트(.) 연산자,  (2) 대괄호(['속성명']) 2가지 방법이 있음
+    
+    (1) 도트(.) 연산자 사용형식: 객체참조변수명.속성명
+
+        car.name
+        car.speed
+        car.color
+
+    (2) 대괄호(['속성명']) 사용형식: 객체참조변수명['속성명']
+
+        car['name']
+        car['speed']
+        car['color']
+            
+        </code>
+    </pre>
+
+</div>
+
+        <p/>
+
+
+        <ul class="note">
+            <li>자바스크립트는 웹문서의 각종 요소를 동적으로 제어하는 역할 수행</li>
+            <li>(*중요*) 자바스크립트로 어떤 요소를 제어하려면, 우선 해당요소를 찾아야 함</li>
+            <li>자바스크립트로 제어할 요소를 찾아, 요소의 내용을 출력하는 방법(2가지):</li>
+        </ul>
+
+
+<div class="boxBorder bold">
+
+    <pre>
+        <code>
+
+    &infin; 자바스크립트로 제어할 요소를 찾아 요소의 내용을 출력하는 방법(2가지):
+    &nbsp;&nbsp;&nbsp;(1) innerHTML 속성이용  (2) textContent 속성이용
+    
+    (1) innerHTML 속성이용
+
+        document.getElementById('제어할 요소명').innerHTML
+
+    (2) textContent 속성이용
+
+        document.getElementById('제어할 요소명').textContent
+            
+        </code>
+    </pre>
+    
+</div>
+
+
+        <p/>
+
+
+        <div class="boxBorder">
+            <ul>
+                <li><span id="var1"></span></li>
+                <li><span id="var2"></span></li>
+                <li><span id="var3"></span></li>
+            </ul>
+        </div>
+
+
+        <script>
+
+            console.log("-----------------------------------------------")
+
+
+            // 메소드는 없이, 속성만 가진 사용자정의객체 만들기
+            var car = {
+
+                name: 'Sonata',
+                speed: 100,
+                color: 'white'
+
+            }; // 사용자정의객체 생성하여, 객체변수(=참조변수) car에 저장
+
+            console.log("1. car:", car)
+
+
+            var var1 = document.getElementById('var1')
+            var var2 = document.getElementById('var2')
+            var var3 = document.getElementById('var3')
+
+            console.log('\t+ var1:', var1)
+            console.log('\t+ var2:', var2)
+            console.log('\t+ var3:', var3)
+
+
+            var1.innerHTML = '자동차 이름: ' + car['name']
+            var2.innerHTML = '자동차 속도: ' + car.speed
+            var3.innerHTML = '자동차 색상: ' + car['color']
+
+        </script>
+
+        
+        <p/>
+        
+
+        <div class="boxBorder bold">
+
+            <ul>
+                <li>msg1: <span id="msg1"></span></li>
+                <li>msg2: <span id="msg2"></span></li>
+                <li>msg3: <span id="msg3"></span></li>
+            </ul>
+
+        </div>
+
+
+        <script>
+
+            console.log("-----------------------------------------------")
+
+
+            // 메소드를 호출하여, 리턴값 출력하기
+
+            var obj = {
+
+                // (*주의*) 각 메소드 정의의 구분자인 쉼표(,) 를 빼먹지 말것!!!
+
+                m1: function () {               // 메소드 m1 정의
+                    return 'Hello!, Sonata'
+                }, // m1
+
+                m2: function (a) {              // 메소드 m2 정의
+                    var result = a
+
+                    return result
+                }, // m2
+
+                m3: function(a, b) {            // 메소드 m3 정의
+                    var result = a + b
+                    
+                    return result
+                } // m3
+
+            }; // 사용자정의객체 생성하여, 객체변수(=참조변수) obj에 저장
+
+            console.log("2. obj:", obj)
+
+
+            var msg1 = document.getElementById('msg1')
+            var msg2 = document.getElementById('msg2')
+            var msg3 = document.getElementById('msg3')
+
+            console.log('\t+ msg1:', msg1)
+            console.log('\t+ msg2:', msg2)
+            console.log('\t+ msg3:', msg3)
+
+
+            msg1.innerHTML = obj.m1()
+            msg2.innerHTML = obj.m2(100)
+            msg3.innerHTML = obj.m3(100, 200)
+
+        </script>
+
+
+        <p/>
+
+        
+        <div class="boxBorder bold">
+
+            <ul>
+                <li>car name: <span id="carname"></span></li>
+                <li>car color: <span id="carcolor"></span></li>
+                <li>car speed: <span id="carspeed"></span></li>
+            </ul>
+
+        </div>
+
+
+        <script>
+
+            console.log("-----------------------------------------------")
+
+
+            var car = {
+
+                // 필드(속성) 선언
+                name: 'Sonata',
+                speed: 50,
+                color: 'white',
+                
+                
+                // 메소드 선언
+                start: function () {
+                    return this.speed + 10
+                } // start
+
+            }; // 사용자정의객체 생성하여, 객체변수(=참조변수)에 저장
+
+            console.log("3. car:", car)
+
+
+            var cname = document.getElementById('carname')
+            var ccolor = document.getElementById('carcolor')
+            var cspeed = document.getElementById('carspeed')
+
+            console.log('\t+ cname:', cname)
+            console.log('\t+ ccolor:', ccolor)
+            console.log('\t+ cspeed:', cspeed)
+
+
+            cname.textContent = car.name
+            ccolor.textContent = car.color
+            cspeed.textContent = car.speed
+
+        </script>
+
+        <p/>
+
+        <ul>
+            <li class="note">객체의 메소드에서 사용하는 this 키워드: 객체 자체를 의미</li>
+            <li>예: this.speed -> car 객체의 속성인 speed를 의미</li>
+            <li class="note">this 키워드를 이용하면, 객체의 속성값을 변경/연산할 수 있음</li>
+        </ul>
+
+
+        <div class="boxBorder bold">
+
+            <ul>
+                <li><span id="upspeed"></span></li>
+                <li><span id="downspeed"></span></li>
+            </ul>
+
+        </div>
+
+
+        <script>
+
+            console.log("-----------------------------------------------")
+
+
+            var car = {
+
+                // 필드(속성) 선언
+                name: 'Sonata',
+                speed: 50,
+                color: 'white',
+
+
+                // 메소드 선언
+                speedUp: function () {
+                    return this.speed + 10
+                }, // speedUp
+
+                speedDown: function () {
+                    var low = this.speed - 10
+
+                    return low
+                } // speedDown
+
+            }; // 사용자정의객체 생성 및 객체변수(=참조변수)에 할당
+
+            console.log("4. car:", car)
+
+
+            var upspeed = document.getElementById('upspeed');
+            var downspeed = document.getElementById('downspeed');
+
+            console.log('\t+ upspeed: ' + upspeed)
+            console.log('\t+ downspeed: ' + downspeed)
+
+
+            upspeed.textContent = '속도증가: ' + car.speedUp()
+            downspeed.textContent = '속도감소: ' + car.speedDown()
+
+        </script>
+
+
+        <p/>
+
+
+        <script>
+
+            console.log("-----------------------------------------------")
+
+
+            var car = {
+
+                name: 'Sonata',
+                speed: 100,
+                color: 'white',
+
+
+                speedUp: function (a) {
+                    var sp = this.speed + a;
+
+                    if(sp >= 300) {
+                        sp = 50
+                    } // if
+                    
+                    return sp
+                }, // speedUp
+
+                speedDown: function (a) {
+                    var sp = this.speed - a
+
+                    if(sp < 0) {
+                        sp = 0
+                    } // if
+
+                    return sp
+                } // speedDown
+
+            }; // 사용자정의객체 생성 및 객체변수(=참조변수)에 저장
+
+            console.log("5. car:", car)
+
+
+            var upspeed = document.getElementById('upspeed')
+            var downspeed = document.getElementById('downspeed')
+
+            console.log('\t+ upspeed:', upspeed)
+            console.log('\t+ downspeed:', downspeed)
+
+
+            upspeed.textContent = '속도증가: ' + car.speedUp(30)
+            downspeed.textContent = '속도감소: ' + car.speedDown(20)
+
+        </script>
+
+
+    </div>
+    
+</body>
+</html>

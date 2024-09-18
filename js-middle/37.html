@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>37</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+    
+    <div>
+        <h3>&there4; 배열의 원소 접근 및 조작</h3>
+
+        <hr/>
+
+        <ul>
+            <li class="note">배열에 저장된 데이터에 접근 시, "인덱스(index)" 사용</li>
+            <li>저장된 데이터가 많을 시, 인덱스로 일일이 접근 어려움</li>
+            <li class="note">배열에 반복 접근 시, for / while 문 같은 반복문 이용하면 편리</li>
+        </ul>
+
+        <script>
+
+            console.log("---------------------------------------------------")
+
+            var arrData1 = []        // 비어있는 배열 리터럴 선언
+            console.log("1. arrData1:", arrData1)
+
+
+            function insertArr1() {          // 함수선언
+                console.log('>>> insertArr1() invoked.')
+
+                var i=1
+
+                for( ; i <= 10; ++i) {
+                    arrData1[i-1] = i        // 1 ~ 100 까지 저장
+                } // for
+
+                console.log('\t+ arrData1:', arrData1)
+
+                selectArr1()                 // 함수호출
+            } // insertArr
+
+
+            function selectArr1() {          // 함수선언
+                console.log('>>> selectArr1() invoked.')
+
+                var i
+
+                for(i=0; i < arrData1.length; ++i) {
+                    console.log('\t+ arrData1['+i+']:', arrData1[i])
+                } // for
+
+                addArr1();                   // 함수호출
+            } // selectArr
+
+
+            function addArr1() {         // 함수선언
+                console.log('>>> addArr1() invoked.')
+
+                var i
+                var sum = 0
+
+                for(i=0; i < arrData1.length; i++) {
+                    sum += arrData1[i]
+                } // for
+
+                console.log('\t+ sum:', sum)
+            } // addArr
+
+        </script>
+
+        <button type="button" onclick="console.clear(); insertArr1()">배열 생성/조회/연산</button>
+
+        <hr/>
+
+
+        <ul>
+            <li class="note">(*중요*) 배열의 인덱스에 나머지연산자(%)를 적용하면, 배열의 특정위치의 데이터에만 접근가능</li>
+            <li>예: 배열의 홀수 원소만 추출, 배열의 짝수 원소만 추출, 배열의 7의 배수에 해당하는 원소만 추출 등</li>
+        </ul>
+
+        <script>
+
+            console.log("---------------------------------------------------")
+
+            var arrData2 = []        // 비어있는 배열 리터럴 선언
+            console.log("1. arrData2:", arrData2)
+
+
+            function insertArr2() {         // 함수선언
+                console.log('>>> insertArr2() invoked.')
+
+                var i=0
+
+                for(i=0; i<=9; i++) {
+                    arrData2[i] = i+1
+
+                    // console.log('\t+ arrData['+i+']:', arrData[i])
+                } // for
+                
+                console.log('\t+ arrData2:', arrData2)
+            } // insertArr
+
+            function delArr2() {         // 함수선언
+                console.log('>>> delArr2() invoked.')
+
+                var i
+
+                for(i=0; i < arrData2.length; i++) {
+                    if(i % 2 == 0) {
+                        arrData2[i] = 0
+                    } // 배열의 인덱스 중, 2의 배수(짝수에 대해서만)
+
+                    // if(i % 2 != 0) {
+                    //     arrData2[i] = 0
+                    // } // 배열의 인덱스 중, 2의 배수가 아닌(홀수에 대해서만)
+
+                    continue
+                } // for
+
+                console.log('\t+ arrData2:', arrData2)
+
+                selectArr2()
+            } // delArr
+
+
+            function selectArr2() {          // 함수선언
+                console.log('>>> selectArr2() invoked.')
+
+                var i
+
+                for(i=0; i < arrData2.length; ++i) {
+                    console.log('\t+ arrData2['+i+']:', arrData2[i])
+                } // for
+            } // selectArr
+
+
+            insertArr2()                     // 함수호출
+
+        </script>
+
+        <button onclick="console.clear(); delArr2()">배열의 홀수번째 원소의 초기화 수행</button>
+
+        <hr/>
+        
+
+        <ul>
+            <li>배열에 저장된 모든 데이터를 0으로 초기화하면, 배열의 크기는 그대로임</li>
+            <li class="note">(*중요*) 배열에 저장된 모든 원소를 삭제하고, 배열의 크기를 0으로 만들려면, <br/>
+                <code class="note">배열명.length = 0</code> 으로 처리
+            </li>
+        </ul>
+
+        <script>
+
+            console.log("---------------------------------------------------")
+
+            var arrData3 = []        // 빈 배열 리터럴 선언
+            console.log("1. arrData3:", arrData3)
+
+
+            function insertArr3() {        // 함수선언
+                console.log('>>> insertArr3() invoked.')
+
+                var i=0
+
+                for(i=0; i<=9; i++) {
+                    arrData3[i] = i+1
+
+                    // console.log('\t+ arrData3['+i+']:', arrData3[i])
+                } // for
+
+                console.log('\t+ arrData3:', arrData3)
+                console.log('\t+ size of arrData3:', arrData3.length)
+            } // insertArr
+
+
+            function delDataArr3() {        // 함수선언
+                console.log('>>> delDataArr3() invoked.')
+
+                var i
+
+                for(i=0; i < arrData3.length; i++) {
+                    arrData3[i] = 0
+                } // for
+
+                selectArr3()
+            } // delDataArr
+
+
+            function selectArr3() {          // 함수선언
+                console.log('>>> selectArr3() invoked.')
+
+                // var i
+
+                // for(i=0; i < arrData3.length; ++i) {
+                //     console.log('\t+ arrData3['+i+']:', arrData3[i])
+                // } // for
+
+                console.log('\t+ arrData3:', arrData3)
+                console.log('\t+ size of arrData3:', arrData3.length)
+            } // selectArr
+
+
+            function allDelArr3() {          // 함수선언
+                console.log('>>> allDelArr3() invoked.')
+
+                arrData3.length = 0          // 배열의 모든 데이터 삭제(크기는 0이 됨) (*******)
+                console.log('\t+ arrData3:', arrData3)
+
+                selectArr3()
+            } // allDelArr
+
+
+            insertArr3()                     // 함수호출
+
+        </script>
+
+        <button onclick="console.clear(); insertArr3()">배열 데이터 초기화</button>
+        <button onclick="allDelArr3()">배열 데이터 삭제</button>
+
+        <hr/>
+
+    </div>
+
+
+
+    <script>
+        console.clear();
+    </script>
+
+</body>
+</html>

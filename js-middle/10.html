@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10</title>
+</head>
+<body>
+
+    <script>
+        
+        function getGrade() {
+            kor = 95        // 전역변수 kor 정의: 함수 내부에서라도, var 키워드 생략하면, 자동으로 전역변수로 승급
+
+            console.log("1. 함수내부:", "kor =", kor)
+        } // getGrade
+
+        getGrade()          // 함수호출
+
+        console.log("2. 함수외부:", "kor =", kor)
+
+
+        var kor = 100       // 전역변수 kor 재정의
+
+        console.log("3. 함수외부:", "kor =", kor)
+
+    </script>
+    
+</body>
+</html>

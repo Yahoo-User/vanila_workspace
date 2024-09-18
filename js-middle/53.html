@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>53</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+
+        <h3>&there4; 2차원 배열</h3>
+
+        <hr/>
+
+        <ul class="note">
+            <li>(*중요*) 행과 열로 구성된 배열</li>
+            <li>(*중요*) 배열의 각 원소는 [행번호][열번호]로 작성된 인덱스로 참조(사용)</li>
+            <li>1차원 배열과 마찬가지로,<br/>
+                (1) 배열 리터럴 방법<br/>
+                (2) Array 생성자 방법 으로, 배열객체 생성
+            </li>
+        </ul>
+
+
+        <script>
+
+            console.log("-----------------------------------------------")
+
+
+            var d2data = [ [10, 20, 30, 40, 50], [60, 70, 80, 90, 0] ]     // 2차원 배열 리터럴 선언
+            console.log('+ 원본 d2data:', d2data)
+
+
+            d2data[0][4] = -50
+            d2data[1][4] = 100
+
+            delete d2data[1][0]
+
+            console.log('\t+ d2data:', d2data)
+
+            console.log('\t+ d2data[0][0]:', d2data[0][0])
+            console.log('\t+ d2data[1][4]:', d2data[1][4])
+            console.log('\t+ d2data.length:', d2data.length)
+            console.log('\t+ d2data[0].length:', d2data[0].length)
+            console.log('\t+ d2data[1].length:', d2data[1].length)
+
+            d2data[1].length = 0
+            console.log('\t+ d2data after [1].length = 0:', d2data)
+
+            d2data.length = 0
+            console.log('\t+ d2data after length = 0:', d2data)
+
+        </script>
+
+
+        <script>
+
+            console.log("-----------------------------------------------")
+
+            var arr0 = [10, 20, 30, 40, 50]      // 1차원 배열 리터럴 선언
+            var arr1 = [11, 21, 31, 41, 51]      // 1차원 배열 리터럴 선언
+            var arr2 = [12, 22, 32, 42, 52]      // 1차원 배열 리터럴 선언
+            var arr3 = [13, 23, 33, 43, 53]      // 1차원 배열 리터럴 선언
+
+            var allArr = [ arr0, arr1, arr2, arr3 ]     // 2차원 배열 리터럴 선언 (4 x 5)
+            var partArr = [ arr1, arr3 ]                // 2차원 배열 리터럴 선언 (2 x 5)
+
+            console.log('+ allArr:', allArr)
+            console.log('+ partArr:', partArr)
+
+
+            function printAll() {
+                console.log('>>> printAll() invoked.')
+
+                console.log('allArr:', allArr)
+
+
+                console.log('\t+ allArr.length:', allArr.length)
+                console.log('\t+ allArr[0].length:', allArr[0].length)
+
+                for(var x=0; x < allArr.length; x++) {  // x : 행번호
+
+                    for(var y=0; y < allArr[x].length; y++) {   // y : 열번호
+                        console.log(allArr[x][y])
+                    } // inner-for
+
+                } // outer-for
+            } // printAll
+
+
+            function printPart() {
+                console.log('>>> printPart() invoked.')
+
+                console.log('partArr:', partArr)
+
+
+                console.log('\t+ partArr.length:', partArr.length)
+                console.log('\t+ partArr[0].length:', partArr[0].length)
+
+
+                for(var x=0; x<partArr.length;x++) {
+
+                    for(var y=0; y<partArr[x].length;y++) {
+                        console.log(partArr[x][y])
+                    } // inner-for
+
+                } // outer-for
+
+
+            } // printPart
+
+
+        </script>
+
+        <button onclick="console.clear(); printAll()">전체 배열 데이터 보기</button>
+        <button onclick="console.clear(); printPart()">홀수 배열 데이터 보기</button>
+
+        <hr/>
+
+
+        <script>
+
+            console.log("-----------------------------------------------")
+
+
+            var data = []           // 빈 배열 리터럴 선언
+            console.log('+ data:', data)
+
+            
+            for(var i=0; i < 10; i++) {
+                data[i] = [ String(i+'-'+0), String(i+'-'+1), String(i+'-'+2) ]
+
+                console.log('\t+ data['+i+']:', data[i])
+            } // for
+
+            console.log('+ data:', data)    // 배열 리터럴 선언 (10 x 3)
+
+
+            function printData() {
+                console.log('>>> printData() invoked.')
+
+                for(var x=0; x < data.length; x++) {
+                    console.log(x, data[x].length)
+
+                    for(var y=0; y < data[x].length; ++y) {
+                        console.log(y, data[x][y])
+                    } // inner-for
+                } // outer-for
+
+            } // printData
+
+        </script>
+
+        <button onclick="console.clear(); printData()">전체배열 보기</button>
+
+        <hr/>
+
+
+        <ul>
+            <li>Array() 생성자를 사용하여, 2차원 배열 만들 때는, new 연산자를 사용</li>
+            <li class="note">(*중요*) 먼저 1차원 배열객체 생성 후,<br/>생성한 1차원 배열객체의 각 인덱스에 다시, Array() 생성자로 1차원 배열객체를 만듦</li>
+        </ul>
+
+
+        <script>
+
+            console.log("-----------------------------------------------")
+
+
+            var data = new Array()      // 1. 우선 1차원 배열객체 생성
+            console.log('+ data:', data)
+
+
+            for(var i=0; i<10; i++) {
+
+                // 2. 1차원 배열객체의 각 원소에, 다시 원소가 3개인 1차원 배열객체 생성하여 대입
+                data[i] = new Array( String(i+'-'+0), String(i+'-'+1), String(i+'-'+2) )
+                console.log('\t+ data['+i+']:', data[i])
+
+            } // for
+
+
+            console.log('\t+ final data:', data)
+
+        </script>
+
+        <hr/>
+
+    </div>
+    
+</body>
+</html>

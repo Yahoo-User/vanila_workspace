@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>63</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+        <h3>&there4; <b class="note">타이머</b> 관련 메소드</h3>
+
+        <hr/>
+
+        <ul>
+            <li>자바스크립트에서 <b class="note">타이머 설정</b>은 2가지 메소드로 구현가능</li>
+            <li class="note">Windows 객체의<br/>
+                &nbsp;&nbsp;(1) setTimeout()<br/>
+                &nbsp;&nbsp;(2) setInterval()<br/>
+                메소드 사용
+            </li>
+            <li class="note">(*중요*) setTimeout() : 지정시간경과 후, 한번지정동작 수행</li>
+            <li class="note">(*중요*) setInterval() : 동일지정시간 마다, 지정동작 반복 수행</li>
+            <li>위 메소드들은, 특정시간 이후 함수 호출할 경우, 많이 사용하는 방법</li>
+            <li>1000 밀리초 = 1초, 시간설정: 밀리초 단위로 작성</li>
+        </ul>
+
+
+        <div class="boxBorder bold">
+
+            <ol>
+                <li>setTimeout( <b class="note">function()</b>, milliseconds )</li>
+                <li>setInterval( <b class="note">function</b>, milliseconds )</li>
+            </ol>
+
+        </div>
+
+
+        <h4>&clubs; 디지털 시계 만들기 &clubs;</h4>
+
+        <div id="digClock" class="note"></div>
+
+        <script>
+
+            console.clear()
+            
+
+            function digClock() {
+                var now = new Date()
+                
+                var day = now.getMonth() + 1 + '월 ' + now.getDate() + '일 '
+                var tm = now.getHours() + '시 ' + now.getMinutes() + '분 ' + now.getSeconds() + '초'
+
+                // document.getElementById('digClock').innerHTML = day + tm
+                document.getElementById('digClock').textContent = day + tm
+                
+                console.log(day, tm)
+
+                // setTimeout('digClock()', 1000)   // 1st. method for new timer.
+            } // digClock
+
+
+            // digClock()                           // 1st. method for new timer.
+
+            setInterval( digClock, 1000 )           // 2nd. method for new timer.
+
+        </script>
+
+    </div>
+    
+</body>
+</html>

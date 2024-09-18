@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+        <h3>&there4; 반환값 출력</h3>
+
+<pre>
+    <code>
+
+    function 함수명(매개변수1, 매개변수2, ...) {    // 함수선언
+        실행문장들
+
+        return 반환값
+    } // 함수명
+
+
+    // 함수호출결과 return 문이 반환한 값을 변수에 저장
+    result = 함수명(전달인자1, 전달인자2, ...)      // 함수호출
+
+    </code>
+</pre>
+
+        <hr/>
+
+        <ul>
+            <li class="note">함수 수행 결과값을 반환할 때에는 return 키워드 사용</li>
+            <li class="note">(*중요*) 만일 반환할 값이 없으면, return 문 생략가능</li>
+            <li>반환값을 저장하기 위한 변수는 미리 선언해야 함</li>
+            <li>함수호출이 끝나면, 자동으로 함수호출한 시점 다음으로 돌아가 계속 수행됨</li>
+        </ul>
+
+        <hr/>
+
+
+        <script>
+
+            var result          // 리턴값 저장위한 변수 미리 선언
+            console.log('1. result:', result)
+
+
+            function add(name, n) {                         // 함수선언
+                console.log('>>> add(name, n) invoked.')
+
+                var sum = 0
+
+                for(var i=1; i<= n; i++) {
+                    sum += i
+                } // for
+
+                return sum      // 리턴값
+            } // add
+
+            
+            result = add("홍길동", 10)                      // 함수호출
+            console.log('2. result =', result)
+
+            result = add("이영희", 100)                     // 함수호출
+            console.log('3. result =', result)
+
+        </script>
+
+
+        <ul>
+            <li class="note">변수없이 함수호출 반환값을 출력하려면, 출력문에서 바로 함수호출하면 됨</li>
+        </ul>
+
+        <hr/>
+
+
+        <script>
+
+            function add2(name, n) {                            // 함수선언
+                console.log('>>> add2(name, n) invoked.')
+
+                var sum = 0
+
+                for(var i=0; i<=n; i++) {
+                    sum += i
+                } // for
+                
+                return sum
+            } // add2
+
+
+            console.log("4. result:", add2('name1', 10) )       // 함수호출
+            console.log("5. result:", add2('name2', 100) )      // 함수호출
+
+        </script>
+
+
+        <ul class="note">
+            <li>(*중요*) 자바스크립트에서 함수는 변수에 할당하여 사용가능</li>
+            <li>함수를 먼저 선언한 후, 함수명을 변수에 저장하는 방식</li>
+            <li>(*중요*) 여러 변수명으로, 하나의 함수를 참조(사용) 가능</li>
+        </ul>
+
+
+        <script>
+
+            function add3(x, y) {           // 함수선언
+                console.log('>>> add3(x, y) invoked.')
+
+                return x + y
+            } // add3
+
+
+            var calSum = add3;      // 위에서 선언한 함수를 변수에 저장
+            var addUp = add3;       // 위에서 선언한 함수를 변수에 저장
+
+
+            console.log('6. result =', calSum(10, 20) )
+            console.log('7. result =', addUp(30, 40) )
+
+        </script>
+
+        <hr/>
+
+    </div>
+    
+</body>
+</html>

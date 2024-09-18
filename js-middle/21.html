@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21</title>
+</head>
+<body>
+
+    <div>
+
+        <h3>&there4; switch ~ case 문 #2 (범위값 지정하기)</h3>
+
+
+        <script>
+
+            var text                // undefined
+            var now = new Date()    // Date 객체 생성
+            var week = now.getDay() // 현재 요일 얻기 from Date 객체
+
+            console.log('1. text =', text, ', now =', now, ', week =', week)
+
+            switch(week) {
+                case 1: // Monday
+                case 2: // Tuesday
+                    text = 'HTML5'; week = 'Monday ~ Tuesday'
+
+                    break
+                case 3: // Wednesday
+                case 4: // Thursday
+                    text = 'Javascript'; week = 'Wednesday ~ Thursday'
+
+                    break
+                case 5: // Friday
+                case 6: // Saturday
+                    text = 'English'; week = 'Friday ~ Saturday'
+
+                    break
+                case 0: // Sunday
+                    week = 'Sunday'
+                default: // Unknown day
+                    week = 'Unknown day'
+
+                    text = 'Swimming'
+            } // switch
+
+            console.log('2. week =', week)
+            console.log('3. text =', text)
+
+        </script>
+
+    </div>
+    
+</body>
+</html>

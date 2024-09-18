@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>59</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+
+        <h3>&there4; Date 객체</h3>
+
+        <hr/>
+
+        <ul>
+            <li class="note">(*중요*) 자바스크립트에서 많이 활용되는 내장객체</li>
+            <li>날짜와 시간정보를 출력</li>
+            <li class="note">(*중요*) Date 생성자를 사용하여 Date 객체 생성</li>
+        </ul>
+
+
+<div class="boxBorder bold">
+
+    <pre>
+        <code>
+
+    // 여러 Date() 생성자로, Date 객체생성
+    var date = new Date()
+    var date = new Date(milliseconds)
+    var date = new Date(dateString)
+    var date = new Date(year, month, day, hours, minutes, seconds, milliseconds)
+
+    // 위 코드를 보면, 같은 날짜객체를 생성하더라도, 매개변수의 입력에 따라서, 
+    // 서로다른 날짜객체가 생성되는데, 이를 "생성자 오버로딩(Overloading)"이라 한다.
+
+    // 특히 Date()와 같이, 아무런 매개변수가 없는 생성자를,
+    // "기본생성자(default constructor)" 라고 한다.
+            
+        </code>
+    </pre>
+
+</div>
+
+        <div>
+            <ul>
+                <li>기본생성자: <p id="d1"></p></li>
+                <li>밀리초: <p id="d2"></p></li>
+                <li>날짜형식 문자열: <p id="d3"></p></li>
+                <li>특정 날짜와 시간 지정: <p id="d4"></p></li>
+            </ul>
+        </div>
+
+
+        <script>
+
+            console.clear()
+
+
+            // 기본 생성자를 이용한 Date 객체 생성
+            document.getElementById('d1').innerHTML = new Date()
+
+            // 밀리초를 이용한 Date 객체 생성
+            document.getElementById('d2').innerHTML = new Date(1491803527400)
+
+            // 날짜형식의 문자열을 이용한 Date 객체 생성
+            document.getElementById('d3').innerHTML = new Date('October 15, 2018 06:18:07')
+
+            // 특정 날짜와 시간 지정
+            // *주의* : 월(month)은 0부터 시작
+            document.getElementById('d4').innerHTML = new Date(2018, 11, 24, 18, 30, 29)
+
+
+            console.log('1. new Date() :', new Date() )
+            console.log('2. new Date(1491803527400) :', new Date(1491803527400) )
+            console.log('3. new Date("October 15, 2018 06:18:07") :', new Date('October 15, 2018 06:18:07') )
+            console.log('4. new Date(2018, 11, 24, 18, 30, 29) :', new Date(2018, 11, 24, 18, 30, 29) )
+
+        </script>
+
+    </div>
+    
+</body>
+</html>

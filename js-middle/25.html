@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+    
+    <div>
+
+        <h3>&there4; break 문</h3>
+
+        <ul class="note">
+            <li>for문, while문, do~while문과 같은 반복문에서, 해당블록을 강제로 벗어나 다음 문장을 처리</li>
+            <li>switch ~ case 문 내에서, 해당 case문을 강제로 벗어나 switch 문 다음 문장을 처리</li>
+        </ul>
+
+        <hr/>
+
+    </div>
+    
+        
+    <script>
+
+        console.log("--- break 문으로, 1 ~ 100까지의 숫자 중, 3의 배수 합 구하기 ---")
+
+
+        var x = 0
+        var sum = 0
+
+
+        while(1) {
+            x += 3      // 3의 배수
+
+            if(x > 100) {
+                break
+            } // if
+
+            sum += x
+
+            console.log('x =', x, ', sum =', sum)
+        } // infinite loop
+
+    </script>
+
+</body>
+</html>

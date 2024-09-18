@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12</title>
+</head>
+<body>
+
+    <h3>&there4; 산술연산자</h3>
+
+    <script>
+
+        var incData = 1     // 전역변수 incData 정의
+        var decData = 5     // 전역변수 decData 정의
+        var r1 = r2 = 0     // 전역변수 r1, r2 를 동일 초기값으로 정의
+
+        r1 = 15 % 6         // 나머지 연산
+
+        console.log("1. 15 % 6 =", r1)
+        console.log("2. incData++ =", incData++, ", incData =", incData)   // 후위증가
+        console.log("3. ++incData =", ++incData, ", incData =", incData)   // 전위증가
+        console.log("4. decData-- =", decData--, ", decData =", decData)   // 후위감소
+        console.log("5. --decData =", --decData, ", decData =", decData)   // 전위감소
+
+        r2 = incData * decData
+        console.log("6. incData * decData =", r2)
+
+    </script>
+
+</body>
+</html>

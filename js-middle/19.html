@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19</title>
+</head>
+<body>
+    
+    <div>
+
+        <h3>&there4; 다중 if~else 문</h3>
+
+    </div>
+
+
+    <script>
+
+        // var point = 93
+        var point = prompt('Enter a score:', '0 ~ 100')         // (*중요*) 취소를 누르거나, Escape 을 누르면 null 리턴
+        var grade = undefined       // type: undefined
+
+        console.log('1. point =', point, ', grade =', grade);
+
+
+        if(point > 100) {
+            grade = 'A'
+        } else if(point >= 90) {
+            grade = 'B'
+        } else if(point >= 80) {
+            grade = 'C'
+        } else if(point >= 70) {
+            grade = 'D'
+        } else if(point >= 60) {
+            grade = 'E'
+        } else {
+            grade = 'F'
+        } // multiple if-else
+
+        console.log("2. grade =", grade);
+
+    </script>
+    
+</body>
+</html>

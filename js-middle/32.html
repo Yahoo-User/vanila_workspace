@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>32</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+
+        <h3>&there4; 함수 오버로딩(Overloading)</h3>
+
+        <ul>
+            <li>함수의 이름을 동일하게 사용하면서, 매개변수의 개수/타입을 다르게 작성하여, 함수호출 시 구분하는 개념</li>
+            <li class='note'>(*중요*) OOP언어(예:자바)에서는 오버로딩을 지원하나, 자바스크립트에서는 지원하지 않음</li>
+            <li class='note'>(*중요*) 전달인자의 개수가, 함수의 매개변수 개수보다 적을 경우,<br/>함수 내에서 제어문을 이용해 기본값 설정이나 연산방식을 바꾸어야 함</li>
+        </ul>
+
+    </div>
+
+    <hr/>
+    
+
+    <script>
+
+        function add(x) {           // 함수선언
+            console.log(">>> add(x) invoked.")
+
+            console.log("\t+ x =", x)
+
+            var sum = x
+
+            return sum
+        } // add
+
+
+        // 함수호출
+        var r1 = add(2)             // 하나의 전달인자만 전달
+        var r2 = add(2, 3)          // 두개의 전달인자만 전달 (남는 인자는 *undefined* 처리)
+
+        //---------------------------------------------------//
+
+        function add(x, y, z) {     // 함수선언
+            console.log(">>> add(x, y, z) invoked.")
+
+            console.log("\t+ x =", x, ", y =", y, ", z =", z)
+
+
+            var sum
+
+            if( y === undefined && z === undefined ) {
+                sum = x
+            } else if( z === undefined ) {
+                sum = x + y
+            } else {
+                sum = x + y + z
+            } // multiple if-else
+
+            return sum
+        } // add
+
+
+        // 함수호출
+        // var r1 = add(2)             // 하나의 전달인자만 전달
+        // var r2 = add(2, 3)          // 두개의 전달인자만 전달
+        var r3 = add(2, 3, 4)       // 정상적으로 3개의 전달인자 전달
+        var r4 = add(2, 3, 4, 5)    // 한 개 초과하여 전달인자 전달
+
+        console.log("1. 함수호출 전달인자 부족:", r1)
+        console.log("2. 함수호출 전달인자 부족:", r2)
+        console.log("3. 정상적인 함수호출:", r3)
+        console.log("4. 함수호출 전달인자 넘침:", r4)
+
+    </script>
+
+
+</body>
+</html>

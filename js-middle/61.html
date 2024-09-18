@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>61</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <p id="d1"></p>
+    <p id="d2"></p>
+    <p id="d3"></p>
+    <p id="d4"></p>
+
+
+    <script>
+
+        console.clear()
+
+
+        var today = new Date()
+        console.log('today:', today)
+
+        document.getElementById('d1').innerHTML = today.getFullYear() + '년'
+        document.getElementById('d2').innerHTML = today.getMonth() + 1 + '월' + today.getDate() + '일'
+        document.getElementById('d3').innerHTML = today.getHours() + '시' + today.getMinutes() + '분' + today.getSeconds() + '초'
+        document.getElementById('d4').innerHTML = '1970.01.01 이후, 현재까지 ' + today.getTime() + ' ms 가 지났음'
+
+        
+        console.log('\t+ today.getFullYear():', today.getFullYear())
+        console.log('\t+ today.getMonth():', today.getMonth())
+        console.log('\t+ today.getDate():', today.getDate())
+        console.log('\t+ today.getHours():', today.getHours())
+        console.log('\t+ today.getMinutes():', today.getMinutes())
+        console.log('\t+ today.getSeconds():', today.getSeconds())
+        console.log('\t+ today.getTime():', today.getTime())
+
+    </script>
+    
+</body>
+</html>

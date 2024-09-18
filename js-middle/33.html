@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>33</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+        <h3>&there4; 함수 내에서 기본 사용가능한 <b class="note">arguments</b> 의 정체</h3>
+
+        <ul class="note">
+            <li>함수의 매개변수가 너무 많거나, 자주 변하는 경우, 함수 내에서 부족한 전달인자 처리가 힘들어짐</li>
+            <li>(*중요*) 이때는, arguments 객체를 사용하여 처리하면 편리함</li>
+            <li>(*중요*) arguments 객체는 배열(array)구조로 인자를 처리할 수 있도록 해줌.<br/>즉, arguments[0], arguments[1], ... 으로 각 인자값을 저장</li>
+            <li>arguments.length 는 총 전달인자의 개수 의미(배열임으로...)</li>
+        </ul>
+
+        <hr/>
+    </div>
+
+
+    <script>
+
+        function add() {                            // 함수선언
+            console.log('>>> add() invoked.')
+            console.log('\t+ typeof arguments:', typeof arguments)
+            console.log('\t+ arguments:', arguments)
+
+            var i, sum = 0
+
+            for(i=0; i < arguments.length; i++) {
+                sum += arguments[i]
+            } // for
+
+            console.log('\t+ sum =', sum)
+        } // add
+
+
+        // 다양한 전달인자로 함수호출
+        add()
+        add(1)
+        add(1, 2)
+        add(1, 2, 3)
+        add(1, 2, 3, 4)
+        add(1, 2, 3, 4, 5)
+        add(1, 2, 3, 4, 5, 6)
+        add(1, 2, 3, 4, 5, 6, 7)
+        add(1, 2, 3, 4, 5, 6, 7, 8)
+        add(1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+    </script>
+    
+</body>
+</html>

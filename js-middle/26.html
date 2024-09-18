@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>26</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+    
+    <div>
+
+        <h3>&there4; continue 문</h3>
+
+        <ul>
+            <li>for 문과 함께 많이 사용</li>
+            <li class="note">if 문이 참(true)이면, continue 문 이후의 문장들을 처리하지 않고, 제어를 반복문의 시작위치로 이동</li>
+            <li class="note">break 문은 반복문을 벗어나게 하는 역할인 반면, continue 문은 제어를 반복문의 시작위치로 이동시킴</li>
+        </ul>
+
+        <hr/>
+
+    </div>
+
+    
+    <script>
+
+        console.log("--- continue 문으로, 1 ~ 100까지의 숫자 중, 3의 배수 합 구하기 ---")
+
+        var x = 0
+        var sum = 0
+
+        
+        for(x = 1; x <= 100; x++) {
+
+            if(x % 3 != 0) {    // 3의 배수가 아니라면
+                continue
+            } // if
+
+            // 3의 배수일 경우
+            sum += x
+
+            console.log('x =', x, ', sum =', sum)
+        } // for
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+    <div>
+
+        <h3>&there4; For 문</h3>
+
+        <p>
+
+<pre>
+    <code>
+
+    for(초기식; 조건식; 증감식) {
+
+        실행문장들
+
+    } // for
+
+    </code>
+</pre>
+
+        </p>
+
+        <ul>
+            <li class="note">초기식: counter 변수선언. 단 한번만 실행(*중요*)</li>
+            <li>조건식: 얼마나 반복할지 결정. 조건식이 참 인동안 반복</li>
+            <li>증감식: counter 변수의 값을 증가 또는 감소 시킴</li>
+        </ul>
+
+        <script>
+
+            var num
+
+            for(num = 1; num <= 5; num++) {
+                console.log('num =', num)
+            } // for
+
+        </script>
+
+    </div>
+
+
+    <hr/>
+
+
+    <div>
+
+        <h3>&there4; For 문의 변칙적 사용</h3>
+
+        <ol>
+            <li class="note">초기식을 for 문 이전에 먼저 선언했다면, for 문에서 생략가능</li>
+            <li>예제코드:
+<pre>
+    <code>
+var num = 1
+
+for( ; num <= 5; num++) {
+    console.log('num =', num);
+} // for
+    </code>
+</pre>
+
+            </li>
+
+            <li class="note">초기식은 여러개 선언가능:</li>
+            <li>예제코드:
+<pre>
+    <code>
+var num
+var st = 'ABCDEF'
+var ct
+
+
+for(num = 1, ct = st.length; num < ct; num++) {
+    console.log('num =', num, ', ct=', ct)
+} // for
+    </code>
+</pre>
+            </li>
+            <li class="note">for 문의 block 내에, 증감식 문장을 포함하면, for 문 자체에서 증감식을 생략가능</li>
+            <li>예제코드:
+<pre>
+    <code>
+var num
+var st = 'ABCDEF'
+var ct = st.length
+
+
+for(  ; num < ct;  ) {
+    console.log('num=', num)
+
+    num++
+} // for
+    </code>
+</pre>
+
+            </li>
+            <li class="note">초기식/조건식/증감식을 모두 생략하면, 무한루프 수행</li>
+            <li>예제코드:
+<pre>
+    <code>
+var num
+var st = 'ABCDEF'
+var ct = st.length
+
+for( ; ; ) {
+
+    if(num < ct) {
+        console.log('num =', num)
+
+        num++
+        continue
+    } // if
+
+    break
+} // for
+    </code>
+</pre>
+            </li>
+        </ol>
+
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,13 @@
+.note {
+    color: red;
+}
+li, p, bold {
+    font-weight: bold;
+}
+.none_style {
+    list-style-type: none;
+}
+.boxBorder {
+    border: 1px dotted blue;
+}
+
